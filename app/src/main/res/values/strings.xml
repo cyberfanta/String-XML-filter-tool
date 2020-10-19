@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">String XML filter tool</string>
+
+    <!--    AdsView-->
+    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
+    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+    <!--    End Adsview-->
+
+    <!--    editTextTextMultiLine1-->
+    <string name="editTextTextMultiLine1_hint">Insert Raw string.xml</string>
+    <!--    End editTextTextMultiLine1-->
+
+
+    linearLayoutHorizontal1
+
+
 </resources>

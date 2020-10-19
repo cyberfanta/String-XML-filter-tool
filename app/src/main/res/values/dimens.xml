@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    linearLayoutHorizontal-->
+    <dimen name="linearLayoutHorizontal_padding">30dp</dimen>
+
+    <!--    horizontalScrollView-->
+    <dimen name="horizontalScrollView_padding">4dp</dimen>
+
+    <!--    linearLayoutVetical-->
+    <dimen name="linearLayoutVetical_layout_width">352dp</dimen>
+    <dimen name="linearLayoutVeticalSpace_layout_width">60dp</dimen>
+
+    <!--    editTextTextMultiLine1-->
+    <dimen name="editTextTextMultiLine_textSize">36sp</dimen>
+    <dimen name="editTextTextMultiLine_corners">15</dimen>
+    <dimen name="editTextTextMultiLine_padding">10dp</dimen>
+
+    <!--    linearLayoutHorizontal1-->
+    <dimen name="linearLayoutHorizontal1_layout_height">100dp</dimen>
+
+
+
+</resources>

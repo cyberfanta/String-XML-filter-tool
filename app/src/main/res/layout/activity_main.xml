@@ -6,13 +6,127 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/background"
+        android:padding="@dimen/horizontalScrollView_padding"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
+        <LinearLayout
+            android:id="@+id/linearLayoutHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/linearLayoutHorizontal_padding">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayoutVetical1"
+                android:layout_width="@dimen/linearLayoutVetical_layout_width"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/editTextTextMultiLine1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittexttextmultiline_background"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/editTextTextMultiLine1_hint"
+                    android:inputType="textMultiLine"
+                    android:padding="@dimen/editTextTextMultiLine_padding"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="@dimen/editTextTextMultiLine_textSize"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayoutHorizontal1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutHorizontal1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/linearLayoutHorizontal1_layout_height"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"></LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutVeticalSpace1"
+                android:layout_width="@dimen/linearLayoutVeticalSpace_layout_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/constraintlayoutVetical2"
+                android:layout_width="@dimen/linearLayoutVetical_layout_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutVeticalSpace2"
+                android:layout_width="@dimen/linearLayoutVeticalSpace_layout_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/constraintlayoutVetical3"
+                android:layout_width="@dimen/linearLayoutVetical_layout_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutVeticalSpace3"
+                android:layout_width="@dimen/linearLayoutVeticalSpace_layout_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/constraintlayoutVetical4"
+                android:layout_width="@dimen/linearLayoutVetical_layout_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutVeticalSpace4"
+                android:layout_width="@dimen/linearLayoutVeticalSpace_layout_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/constraintlayoutVetical5"
+                android:layout_width="@dimen/linearLayoutVetical_layout_width"
+                android:layout_height="match_parent"
+                android:orientation="vertical"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/background"
+        app:adSize="BANNER"
+        app:adUnitId="@string/ads_footer"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
