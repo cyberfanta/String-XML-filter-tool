@@ -9,8 +9,9 @@
     <!--    clipboard-->
     <string name="noPlainText">There is no a plain text on your clipboard</string>
     <string name="textCopied">Text copied into your clipboard</string>
-    <string name="processDone">Process Done</string>
-    <string name="formatWrong">string.xml format wrong</string>
+    <string name="processDone">Process done</string>
+    <string name="stringxmlFormatWrong">string.xml format wrong</string>
+    <string name="stringxmlTranslatedFormatWrong">translated string.xml format wrong</string>
     <!--    End clipboard-->
 
     <!--    button-->
@@ -21,12 +22,12 @@
     <string name="button2_text">Copy</string>
     <string name="button3_text">Paste</string>
     <string name="button4_text">Copy</string>
-    <string name="buttonAutoTranslate_text">Auto\nTranslate</string>
+    <string name="buttonAutoTranslate_text">Auto Translate</string>
     <!--    End button-->
 
 
     <!--    editTextTextMultiLine-->
-    <string name="editTextTextMultiLine1_hint">Insert Raw string.xml</string>
+    <string name="editTextTextMultiLine1_hint">Insert raw string.xml</string>
     <string name="editTextTextMultiLine2_hint">Get your filtered string.xml</string>
     <string name="editTextTextMultiLine3_hint">Paste your translated string.xml</string>
     <string name="editTextTextMultiLine4_hint">Get your string.xml structured as raw with translation provided</string>
