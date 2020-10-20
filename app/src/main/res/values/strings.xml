@@ -3,15 +3,36 @@
 
     <!--    AdsView-->
     <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
-    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+<!--    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>-->
     <!--    End Adsview-->
 
-    <!--    editTextTextMultiLine1-->
+    <!--    clipboard-->
+    <string name="noPlainText">There is no a plain text on your clipboard</string>
+    <string name="textCopied">Text copied into your clipboard</string>
+    <string name="processDone">Process Done</string>
+    <string name="formatWrong">string.xml format wrong</string>
+    <!--    End clipboard-->
+
+    <!--    button-->
+    <string name="buttonBack_text">Back</string>
+    <string name="buttonNext_text">Next</string>
+    <string name="buttonRestart_text">Restart</string>
+    <string name="button1_text">Paste</string>
+    <string name="button2_text">Copy</string>
+    <string name="button3_text">Paste</string>
+    <string name="button4_text">Copy</string>
+    <string name="buttonAutoTranslate_text">Auto\nTranslate</string>
+    <!--    End button-->
+
+
+    <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Insert Raw string.xml</string>
-    <!--    End editTextTextMultiLine1-->
+    <string name="editTextTextMultiLine2_hint">Get your filtered string.xml</string>
+    <string name="editTextTextMultiLine3_hint">Paste your translated string.xml</string>
+    <string name="editTextTextMultiLine4_hint">Get your string.xml structured as raw with translation provided</string>
+    <!--    End editTextTextMultiLine-->
 
-
-    linearLayoutHorizontal1
+<!--    linearLayoutHorizontal1-->
 
 
 </resources>

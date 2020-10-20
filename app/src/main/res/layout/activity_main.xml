@@ -53,10 +53,77 @@
                     android:id="@+id/linearLayoutHorizontal1"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/linearLayoutHorizontal1_layout_height"
+                    android:background="@color/colorSourceBase"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"></LinearLayout>
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="vertical"
+                        android:visibility="invisible">
+
+                        <Button
+                            android:id="@+id/buttonBack1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_previous"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewBack1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buttonBack_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_background"
+                        android:onClick="plainText1"
+                        android:padding="@dimen/button_padding"
+                        android:text="@string/button1_text"
+                        android:textSize="@dimen/button_textSize"
+                        tools:ignore="ButtonStyle" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonNext1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_next"
+                            android:onClick="horizontalScroll1"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewNext1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonNext_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -64,55 +131,409 @@
                 android:id="@+id/linearLayoutVeticalSpace1"
                 android:layout_width="@dimen/linearLayoutVeticalSpace_layout_width"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintlayoutVetical2"
                 android:layout_width="@dimen/linearLayoutVetical_layout_width"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-            </LinearLayout>
+                <EditText
+                    android:id="@+id/editTextTextMultiLine2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittexttextmultiline_background"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/editTextTextMultiLine2_hint"
+                    android:inputType="textMultiLine"
+                    android:padding="@dimen/editTextTextMultiLine_padding"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="@dimen/editTextTextMultiLine_textSize"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayoutHorizontal2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutHorizontal2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/linearLayoutHorizontal1_layout_height"
+                    android:background="@color/colorSourceBase"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonBack2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_previous"
+                            android:onClick="horizontalScrollRestart"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewBack2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonBack_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_background"
+                        android:onClick="plainText2"
+                        android:padding="@dimen/button_padding"
+                        android:text="@string/button2_text"
+                        android:textSize="@dimen/button_textSize"
+                        tools:ignore="ButtonStyle" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonNext2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_next"
+                            android:onClick="horizontalScroll2"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewNext2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonNext_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayoutVeticalSpace2"
-                android:layout_width="@dimen/linearLayoutVeticalSpace_layout_width"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical"
+                android:paddingStart="@dimen/buttonAutoTranslate_margin"
+                android:paddingEnd="@dimen/buttonAutoTranslate_margin">
 
-            <LinearLayout
+                <Button
+                    android:id="@+id/buttonLower"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="@dimen/buttonAutoTranslate_weight1"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/buttonAutoTranslate"
+                    android:layout_width="@dimen/buttonAutoTranslate_layout_width"
+                    android:layout_height="0dp"
+                    android:layout_weight="@dimen/buttonAutoTranslate_weight2"
+                    android:background="@drawable/button_background"
+                    android:enabled="false"
+                    android:onClick="horizontalScroll3"
+                    android:padding="@dimen/buttonAutoTranslate_padding"
+                    android:text="@string/buttonAutoTranslate_text"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/buttonAutoTranslate_textSize" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="@dimen/buttonAutoTranslate_weight1"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/buttonAutoTranslate_layout_width2"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonAutoTranslate1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_previous"
+                            android:onClick="horizontalScroll1"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewAutoTranslate1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonBack_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/buttonAutoTranslate_layout_width2"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonAutoTranslate2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_next"
+                            android:onClick="horizontalScroll3"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewAutoTranslate2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonNext_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintlayoutVetical3"
                 android:layout_width="@dimen/linearLayoutVetical_layout_width"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-            </LinearLayout>
+                <EditText
+                    android:id="@+id/editTextTextMultiLine3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittexttextmultiline_background"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/editTextTextMultiLine3_hint"
+                    android:inputType="textMultiLine"
+                    android:padding="@dimen/editTextTextMultiLine_padding"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="@dimen/editTextTextMultiLine_textSize"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayoutHorizontal3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutHorizontal3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/linearLayoutHorizontal1_layout_height"
+                    android:background="@color/colorSourceBase"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonBack3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_previous"
+                            android:onClick="horizontalScroll2"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewBack3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonBack_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_background"
+                        android:onClick="plainText3"
+                        android:padding="@dimen/button_padding"
+                        android:text="@string/button3_text"
+                        android:textSize="@dimen/button_textSize"
+                        tools:ignore="ButtonStyle" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonNext3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_next"
+                            android:onClick="horizontalScrollEnd"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewNext3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonNext_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayoutVeticalSpace3"
                 android:layout_width="@dimen/linearLayoutVeticalSpace_layout_width"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintlayoutVetical4"
                 android:layout_width="@dimen/linearLayoutVetical_layout_width"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-            </LinearLayout>
+                <EditText
+                    android:id="@+id/editTextTextMultiLine4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittexttextmultiline_background"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/editTextTextMultiLine4_hint"
+                    android:inputType="textMultiLine"
+                    android:padding="@dimen/editTextTextMultiLine_padding"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="@dimen/editTextTextMultiLine_textSize"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayoutHorizontal4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/linearLayoutVeticalSpace4"
-                android:layout_width="@dimen/linearLayoutVeticalSpace_layout_width"
-                android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearLayoutHorizontal4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/linearLayoutHorizontal1_layout_height"
+                    android:background="@color/colorSourceBase"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-            <LinearLayout
-                android:id="@+id/constraintlayoutVetical5"
-                android:layout_width="@dimen/linearLayoutVetical_layout_width"
-                android:layout_height="match_parent"
-                android:orientation="vertical"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonBack4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_previous"
+                            android:onClick="horizontalScroll3"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewBack4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonBack_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_background"
+                        android:onClick="plainText4"
+                        android:padding="@dimen/button_padding"
+                        android:text="@string/button4_text"
+                        android:textSize="@dimen/button_textSize"
+                        tools:ignore="ButtonStyle" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonRestart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_media_rew"
+                            android:onClick="horizontalScrollRestart"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewRestart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonRestart_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </HorizontalScrollView>
