@@ -1,11 +1,18 @@
-package com.cyberfanta.stringxmlfiltertool;
+package com.cyberfanta.stringsxmlfiltertool;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -20,8 +27,16 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Vector;
+
+import lib.folderpicker.FolderPicker;
 
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
@@ -30,13 +45,17 @@ public class MainActivity extends AppCompatActivity {
     Vector <String> names = new Vector<>(0);
     String contents;
 
+    final int FOLDERPICKER_CODE_SAVE = 1;
+    final int FOLDERPICKER_CODE_OPEN = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Device Metrics
-        int deviceWidth;//, deviceHeight;
+        int deviceWidth;
+//        int deviceHeight;
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         deviceWidth = displayMetrics.widthPixels;
@@ -99,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
     public void pastePlainText (EditText editText) {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
-        // If it does contain data, decide if you can handle the data.
         if (clipboard != null) {
             if (!(Objects.requireNonNull(clipboard.getPrimaryClipDescription()).hasMimeType(MIMETYPE_TEXT_PLAIN))) {
                 Toast.makeText(getApplicationContext(), R.string.noPlainText, Toast.LENGTH_SHORT).show();
@@ -127,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void horizontalScroll1 (View view) {
         horizontalScroll(DeviceUtils.convertDpToPx(this, getResources().getInteger(R.integer.horizontalScrollView1)));
-        if (view.getId() == R.id.buttonNext1) {
+        if (view.getId() == R.id.ll1) {
             EditText editText = findViewById(R.id.editTextTextMultiLine1);
             String string = editText.getText().toString();
             if (!string.isEmpty()) {
@@ -150,6 +168,15 @@ public class MainActivity extends AppCompatActivity {
      */
     public void horizontalScroll3 (View view) {
         horizontalScroll(DeviceUtils.convertDpToPx(this, getResources().getInteger(R.integer.horizontalScrollView3)));
+        if (view.getId() == R.id.buttonAutoTranslate) {
+            EditText editText = findViewById(R.id.editTextTextMultiLine2);
+            String string = editText.getText().toString();
+            if (!string.isEmpty()) {
+                autoTranslate(string);
+//                editText = findViewById(R.id.editTextTextMultiLine3);
+//                editText.setText(contents);
+            }
+        }
     }
 
     /**
@@ -164,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void horizontalScrollEnd (View view) {
         horizontalScroll(View.FOCUS_RIGHT);
-        if (view.getId() == R.id.buttonNext3) {
+        if (view.getId() == R.id.ll3) {
             EditText editText = findViewById(R.id.editTextTextMultiLine3);
             String string = editText.getText().toString();
             if (!string.isEmpty()) {
@@ -203,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
 //    -----
 
     /**
-     *  Filter the structure from string.xml file
+     *  Filter the structure from strings.xml file
      */
     public void filterXml (String string) {
         String[] lines = string.split("\n");
@@ -214,7 +241,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             contents = "";
             for (String line : lines ) {
-                ProjectUtils.PrintLogI("line: " + line);
                 if (line.contains("<!--") || line.contains("resources") || !line.contains("<"))
                     continue;
 
@@ -222,16 +248,13 @@ public class MainActivity extends AppCompatActivity {
                 if (name.length < 2)
                     continue;
 
-                ProjectUtils.PrintLogI("name[0]: " + name[0] + "  ---  " + "name[1]: " + name[1] + "  ---  " + "name[2]: " + name[2]);
                 names.add(name[1]);
 
                 String[] content = name[2].split("<");
                 if (content.length < 2)
                     continue;
 
-                ProjectUtils.PrintLogI("content[0]: " + content[0] + "  ---  " + "content[1]: " + content[1]);
                 contents = contents.concat(content[0].substring(1)).concat("\n");
-                ProjectUtils.PrintLogI("contents: " + contents);
             }
         }
 
@@ -239,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *  Return the structure from string.xml file
+     *  Return the structure from strings.xml file
      */
     public void returnXml (String string) {
         String[] lines = string.split("\n");
@@ -247,20 +270,150 @@ public class MainActivity extends AppCompatActivity {
         if (lines.length < 1) {
             Toast.makeText(getApplicationContext(), R.string.stringxmlTranslatedFormatWrong, Toast.LENGTH_SHORT).show();
             return;
+        } else if (names.size() < 1) {
+            Toast.makeText(getApplicationContext(), R.string.stringxmlFormatEmpty, Toast.LENGTH_LONG).show();
+            horizontalScroll(View.FOCUS_LEFT);
+            return;
         } else {
             contents = "<resources>\n";
             int i=0;
             for (String line : lines ) {
-                ProjectUtils.PrintLogI("line: " + line);
-
                 contents = contents.concat("    <string name=\"").concat(names.get(i)).concat("\">").concat(line).concat("</string>\n");
                 i++;
             }
             contents = contents.concat("</resources>");
-            ProjectUtils.PrintLogI("contents: " + contents);
         }
 
         Toast.makeText(getApplicationContext(), R.string.processDone, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     *  Save the structure from strings.xml to a file
+     */
+    public void saveXml (View view) {
+        if (!((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                & (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+        )) {
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+            }, 1500);
+
+            if (!((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                    & (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+            )) {
+                Toast.makeText(getApplicationContext(), R.string.permissionNotGranted, Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                Toast.makeText(getApplicationContext(), R.string.permissionGranted, Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        Intent intent = new Intent(this, FolderPicker.class);
+        intent.putExtra("title", getString(R.string.fileSave));
+        intent.putExtra("location", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
+        startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
+    }
+
+    /**
+     *  Open the structure from strings.xml to a file
+     */
+    public void openXml (View view) {
+        if (!((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                & (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+        )) {
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+            }, 1500);
+
+            if (!((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                    & (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+            )) {
+                Toast.makeText(getApplicationContext(), R.string.permissionNotGranted, Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                Toast.makeText(getApplicationContext(), R.string.permissionGranted, Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        Intent intent = new Intent(this, FolderPicker.class);
+        intent.putExtra("title", getString(R.string.fileOpen));
+        intent.putExtra("location", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
+        intent.putExtra("pickFiles", true);
+        startActivityForResult(intent, FOLDERPICKER_CODE_OPEN);
+    }
+
+//    -----
+
+    /**
+     *  Perform the activities when open or save file from intent
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (requestCode == FOLDERPICKER_CODE_SAVE && resultCode == Activity.RESULT_OK) {
+            String path = Objects.requireNonNull(intent.getExtras()).getString("data");
+            ProjectUtils.PrintLogI("path: " + path);
+
+            EditText editText = findViewById(R.id.editTextTextMultiLine4);
+            String string = editText.getText().toString();
+            if (!string.isEmpty()) {
+                File file = new File(path, "strings.xml");
+                try {
+                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+                    bufferedWriter.write(string);
+                    bufferedWriter.close();
+                } catch (IOException ignored) {
+                }
+            }
+            Toast.makeText(getApplicationContext(), R.string.processDone, Toast.LENGTH_SHORT).show();
+        } else if (requestCode == FOLDERPICKER_CODE_OPEN && resultCode == Activity.RESULT_OK) {
+            String path = Objects.requireNonNull(intent.getExtras()).getString("data");
+            ProjectUtils.PrintLogI("path: " + path);
+
+            File file = null;
+            if (path != null)
+                file = new File(path);
+
+            if (file != null){
+                String lines = "", line;
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                    line = bufferedReader.readLine();
+                    while (line != null) {
+                        lines = lines.concat(line).concat("\n");
+                        line = bufferedReader.readLine();
+                    }
+                    bufferedReader.close();
+                } catch (IOException ignored) {
+                }
+
+                EditText editText = findViewById(R.id.editTextTextMultiLine1);
+                editText.setText(lines);
+            }
+            Toast.makeText(getApplicationContext(), R.string.processDone, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     *  Auto translate the structure from strings.xml using Google Translate Services
+     */
+    public void autoTranslate (String string){
+        if (!(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED)) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{
+                    Manifest.permission.INTERNET
+            }, 1000);
+
+            if (!(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED)) {
+                Toast.makeText(getApplicationContext(), R.string.permissionNotGranted, Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(getApplicationContext(), R.string.permissionGranted, Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        Toast.makeText(getApplicationContext(), R.string.notImplemented, Toast.LENGTH_LONG).show();
+    }
 }

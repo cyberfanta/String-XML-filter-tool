@@ -8,6 +8,7 @@
 
     <!--    linearLayoutVetical-->
     <dimen name="linearLayoutVetical_layout_width">352dp</dimen>
+    <dimen name="linearLayoutVeticalLast_layout_width">392dp</dimen>
     <dimen name="linearLayoutVeticalSpace_layout_width">20dp</dimen>
 
     <!--    editTextTextMultiLine-->
@@ -27,8 +28,9 @@
     <dimen name="buttonAutoTranslate_textSize">24sp</dimen>
     <dimen name="buttonAutoTranslate_margin">10dp</dimen>
     <dimen name="buttonAutoTranslate_padding">10dp</dimen>
-    <dimen name="buttonAutoTranslate_weight1">.25</dimen>
-    <dimen name="buttonAutoTranslate_weight2">.5</dimen>
+    <dimen name="buttonAutoTranslate_weight1">.15</dimen>
+    <dimen name="buttonAutoTranslate_weight2">.4</dimen>
+    <dimen name="buttonAutoTranslate_weight3">.35</dimen>
     <dimen name="buttonAutoTranslate_layout_width">160dp</dimen>
     <dimen name="buttonAutoTranslate_layout_width2">80dp</dimen>
 
@@ -45,5 +47,8 @@
     <integer name="horizontalScrollView1">377</integer>
     <integer name="horizontalScrollView2">624</integer>
     <integer name="horizontalScrollView3">907</integer>
+
+<!--    openFile-->
+    <dimen name="openFile_layout_width">70dp</dimen>
 
 </resources>

@@ -1,5 +1,15 @@
 <resources>
-    <string name="app_name">String XML filter tool</string>
+    <string name="app_name">Strings XML filter tool</string>
+
+    <string name="notImplemented">Function still not implemented</string>
+
+    <!--    Permissions-->
+    <string name="permissionGranted">Permissions Granted</string>
+    <string name="permissionNotGranted">Permissions Not Granted</string>
+    <string name="noIntentFound">No suitable File Manager was found</string>
+    <string name="fileOpen">Select file location of strings.xml</string>
+    <string name="fileSave">Select folder to save your new strings.xml</string>
+    <!--    End Permissions-->
 
     <!--    AdsView-->
     <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
@@ -10,27 +20,30 @@
     <string name="noPlainText">There is no a plain text on your clipboard</string>
     <string name="textCopied">Text copied into your clipboard</string>
     <string name="processDone">Process done</string>
-    <string name="stringxmlFormatWrong">string.xml format wrong</string>
-    <string name="stringxmlTranslatedFormatWrong">translated string.xml format wrong</string>
+    <string name="stringxmlFormatWrong">strings.xml format wrong</string>
+    <string name="stringxmlTranslatedFormatWrong">translated strings.xml format wrong</string>
+    <string name="stringxmlFormatEmpty">strings.xml format is empty please fill it</string>
     <!--    End clipboard-->
 
     <!--    button-->
     <string name="buttonBack_text">Back</string>
     <string name="buttonNext_text">Next</string>
     <string name="buttonRestart_text">Restart</string>
+    <string name="buttonOpenFile_text">Open File</string>
+    <string name="buttonSaveFile_text">Save File</string>
     <string name="button1_text">Paste</string>
     <string name="button2_text">Copy</string>
     <string name="button3_text">Paste</string>
     <string name="button4_text">Copy</string>
-    <string name="buttonAutoTranslate_text">Auto Translate</string>
+    <string name="buttonAutoTranslate_text">Auto Google Translate</string>
     <!--    End button-->
 
 
     <!--    editTextTextMultiLine-->
-    <string name="editTextTextMultiLine1_hint">Insert raw string.xml</string>
-    <string name="editTextTextMultiLine2_hint">Get your filtered string.xml</string>
-    <string name="editTextTextMultiLine3_hint">Paste your translated string.xml</string>
-    <string name="editTextTextMultiLine4_hint">Get your string.xml structured as raw with translation provided</string>
+    <string name="editTextTextMultiLine1_hint">Insert raw strings.xml</string>
+    <string name="editTextTextMultiLine2_hint">Get your filtered strings.xml</string>
+    <string name="editTextTextMultiLine3_hint">Paste your translated strings.xml</string>
+    <string name="editTextTextMultiLine4_hint">Get your strings.xml structured as raw with translation provided</string>
     <!--    End editTextTextMultiLine-->
 
 <!--    linearLayoutHorizontal1-->

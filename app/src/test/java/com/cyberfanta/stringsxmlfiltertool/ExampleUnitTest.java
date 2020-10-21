@@ -1,4 +1,4 @@
-package com.cyberfanta.stringxmlfiltertool;
+package com.cyberfanta.stringsxmlfiltertool;
 
 import org.junit.Test;
 

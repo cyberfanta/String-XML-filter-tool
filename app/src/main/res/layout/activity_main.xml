@@ -64,22 +64,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="bottom"
-                        android:orientation="vertical"
-                        android:visibility="invisible">
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="openXml"
+                        android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonBack1"
-                            android:layout_width="match_parent"
+                            android:layout_width="@dimen/openFile_layout_width"
                             android:layout_height="wrap_content"
-                            android:background="@android:drawable/ic_media_previous"
+                            android:background="@android:drawable/ic_menu_search"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
                             android:id="@+id/textViewBack1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/buttonBack_text"
+                            android:gravity="center"
+                            android:text="@string/buttonOpenFile_text"
                             android:textSize="@dimen/buttonSides_textSize"
                             android:textStyle="bold" />
 
@@ -98,18 +100,20 @@
                         tools:ignore="ButtonStyle" />
 
                     <LinearLayout
+                        android:id="@+id/ll1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="bottom"
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="horizontalScroll1"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonNext1"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@android:drawable/ic_media_next"
-                            android:onClick="horizontalScroll1"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
@@ -172,15 +176,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="bottom"
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="horizontalScrollRestart"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonBack2"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@android:drawable/ic_media_previous"
-                            android:onClick="horizontalScrollRestart"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
@@ -210,15 +215,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="bottom"
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="horizontalScroll2"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonNext2"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@android:drawable/ic_media_next"
-                            android:onClick="horizontalScroll2"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
@@ -249,6 +255,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="@dimen/buttonAutoTranslate_weight1"
+                    android:clickable="false"
                     android:visibility="invisible" />
 
                 <Button
@@ -257,7 +264,6 @@
                     android:layout_height="0dp"
                     android:layout_weight="@dimen/buttonAutoTranslate_weight2"
                     android:background="@drawable/button_background"
-                    android:enabled="false"
                     android:onClick="horizontalScroll3"
                     android:padding="@dimen/buttonAutoTranslate_padding"
                     android:text="@string/buttonAutoTranslate_text"
@@ -267,7 +273,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="@dimen/buttonAutoTranslate_weight1"
+                    android:layout_weight="@dimen/buttonAutoTranslate_weight3"
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
@@ -275,6 +281,7 @@
                         android:layout_width="@dimen/buttonAutoTranslate_layout_width2"
                         android:layout_height="match_parent"
                         android:gravity="bottom"
+                        android:onClick="horizontalScroll1"
                         android:orientation="vertical">
 
                         <Button
@@ -282,7 +289,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@android:drawable/ic_media_previous"
-                            android:onClick="horizontalScroll1"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
@@ -300,6 +307,7 @@
                         android:layout_width="@dimen/buttonAutoTranslate_layout_width2"
                         android:layout_height="match_parent"
                         android:gravity="bottom"
+                        android:onClick="horizontalScroll3"
                         android:orientation="vertical">
 
                         <Button
@@ -307,7 +315,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@android:drawable/ic_media_next"
-                            android:onClick="horizontalScroll3"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
@@ -364,15 +372,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="bottom"
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="horizontalScroll2"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonBack3"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@android:drawable/ic_media_previous"
-                            android:onClick="horizontalScroll2"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
@@ -399,18 +408,20 @@
                         tools:ignore="ButtonStyle" />
 
                     <LinearLayout
+                        android:id="@+id/ll3"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="bottom"
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="horizontalScrollEnd"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonNext3"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@android:drawable/ic_media_next"
-                            android:onClick="horizontalScrollEnd"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
@@ -435,7 +446,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintlayoutVetical4"
-                android:layout_width="@dimen/linearLayoutVetical_layout_width"
+                android:layout_width="@dimen/linearLayoutVeticalLast_layout_width"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -472,15 +483,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="bottom"
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="horizontalScroll3"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonBack4"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@android:drawable/ic_media_previous"
-                            android:onClick="horizontalScroll3"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
@@ -509,16 +521,44 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="bottom"
+                        android:layout_weight="1.3"
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="saveXml"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonSave"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_menu_save"
+                            android:clickable="false"
+                            tools:ignore="ButtonStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewSave"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/buttonSaveFile_text"
+                            android:textSize="@dimen/buttonSides_textSize"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".7"
+                        android:gravity="bottom|center_horizontal"
+                        android:onClick="horizontalScrollRestart"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonRestart"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:drawable/ic_media_rew"
-                            android:onClick="horizontalScrollRestart"
+                            android:background="@android:drawable/ic_menu_revert"
+                            android:clickable="false"
                             tools:ignore="ButtonStyle" />
 
                         <TextView
