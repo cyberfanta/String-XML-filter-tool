@@ -311,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FolderPicker.class);
         intent.putExtra("title", getString(R.string.fileSave));
-        intent.putExtra("location", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
+        intent.putExtra("location", getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
         startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
     }
 
@@ -339,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FolderPicker.class);
         intent.putExtra("title", getString(R.string.fileOpen));
-        intent.putExtra("location", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
+        intent.putExtra("location", getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
         intent.putExtra("pickFiles", true);
         startActivityForResult(intent, FOLDERPICKER_CODE_OPEN);
     }
