@@ -38,15 +38,11 @@
     <string name="buttonAutoTranslate_text">Auto Google Translate</string>
     <!--    End button-->
 
-
     <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Insert raw strings.xml</string>
     <string name="editTextTextMultiLine2_hint">Get your filtered strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Paste your translated strings.xml</string>
     <string name="editTextTextMultiLine4_hint">Get your strings.xml structured as raw with translation provided</string>
     <!--    End editTextTextMultiLine-->
-
-<!--    linearLayoutHorizontal1-->
-
-
+    
 </resources>

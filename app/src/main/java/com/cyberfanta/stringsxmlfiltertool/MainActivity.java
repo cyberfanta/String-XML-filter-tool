@@ -172,9 +172,10 @@ public class MainActivity extends AppCompatActivity {
             EditText editText = findViewById(R.id.editTextTextMultiLine2);
             String string = editText.getText().toString();
             if (!string.isEmpty()) {
-                autoTranslate(string);
-//                editText = findViewById(R.id.editTextTextMultiLine3);
-//                editText.setText(contents);
+                if (autoTranslate(string)) {
+                    editText = findViewById(R.id.editTextTextMultiLine3);
+                    editText.setText(contents);
+                }
             }
         }
     }
@@ -198,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 returnXml(string);
                 editText = findViewById(R.id.editTextTextMultiLine4);
                 editText.setText(contents);
+
             }
         }
     }
@@ -311,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FolderPicker.class);
         intent.putExtra("title", getString(R.string.fileSave));
-        intent.putExtra("location", getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
+        intent.putExtra("location", Objects.requireNonNull(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)).getAbsolutePath());
         startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
     }
 
@@ -339,7 +341,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FolderPicker.class);
         intent.putExtra("title", getString(R.string.fileOpen));
-        intent.putExtra("location", getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
+        intent.putExtra("location", Objects.requireNonNull(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)).getAbsolutePath());
         intent.putExtra("pickFiles", true);
         startActivityForResult(intent, FOLDERPICKER_CODE_OPEN);
     }
@@ -400,7 +402,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      *  Auto translate the structure from strings.xml using Google Translate Services
      */
-    public void autoTranslate (String string){
+    public boolean autoTranslate (String string){
         if (!(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{
                     Manifest.permission.INTERNET
@@ -415,5 +417,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Toast.makeText(getApplicationContext(), R.string.notImplemented, Toast.LENGTH_LONG).show();
+        return false; // Modify from here
     }
 }
