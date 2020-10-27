@@ -275,10 +275,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="@dimen/buttonAutoTranslate_weight3"
                     android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="@dimen/buttonAutoTranslate_weightSum">
 
                     <LinearLayout
-                        android:layout_width="@dimen/buttonAutoTranslate_layout_width2"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="bottom"
                         android:onClick="horizontalScroll1"
@@ -304,7 +305,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/buttonAutoTranslate_layout_width2"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="bottom"
                         android:onClick="horizontalScroll3"

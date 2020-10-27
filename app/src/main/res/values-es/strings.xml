@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">String XML Herramienta de Filtrado</string>
+    <string name="notImplemented">Función aún no implementada</string>
+    <string name="permissionGranted">Permisos concedidos</string>
+    <string name="permissionNotGranted">Permisos no concedidos</string>
+    <string name="noIntentFound">No se encontró ningún administrador de archivos adecuado</string>
+    <string name="fileOpen">Seleccione la ubicación del archivo de strings.xml</string>
+    <string name="fileSave">Seleccione la carpeta para guardar su nuevo strings.xml</string>
+    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
+    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+    <string name="noPlainText">No hay un texto sin formato en su portapapeles</string>
+    <string name="textCopied">Texto copiado en su portapapeles</string>
+    <string name="processDone">Proceso hecho</string>
+    <string name="stringxmlFormatWrong">formato strings.xml incorrecto</string>
+    <string name="stringxmlTranslatedFormatWrong">formato strings.xml traducido incorrecto</string>
+    <string name="stringxmlFormatEmpty">El formato strings.xml está vacío, llénelo</string>
+    <string name="buttonBack_text">Atrás</string>
+    <string name="buttonNext_text">Próximo</string>
+    <string name="buttonRestart_text">Reiniciar</string>
+    <string name="buttonOpenFile_text">Abrir archivo</string>
+    <string name="buttonSaveFile_text">Guardar archivo</string>
+    <string name="button1_text">Pegar</string>
+    <string name="button2_text">Copiar</string>
+    <string name="button3_text">Pegar</string>
+    <string name="button4_text">Copiar</string>
+    <string name="buttonAutoTranslate_text">Auto traducir con Google</string>
+    <string name="editTextTextMultiLine1_hint">Insertar strings.xml sin procesar</string>
+    <string name="editTextTextMultiLine2_hint">Tome su strings.xml filtrado</string>
+    <string name="editTextTextMultiLine3_hint">Pegue su strings.xml traducido</string>
+    <string name="editTextTextMultiLine4_hint">Copie su strings.xml estructurado con la traducción proporcionada</string>
+</resources>

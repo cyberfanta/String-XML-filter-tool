@@ -13,7 +13,7 @@
 
     <!--    AdsView-->
     <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
-<!--    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>-->
+    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
     <!--    End Adsview-->
 
     <!--    clipboard-->
@@ -35,14 +35,14 @@
     <string name="button2_text">Copy</string>
     <string name="button3_text">Paste</string>
     <string name="button4_text">Copy</string>
-    <string name="buttonAutoTranslate_text">Auto Google Translate</string>
+    <string name="buttonAutoTranslate_text">Auto Translate with Google</string>
     <!--    End button-->
 
     <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Insert raw strings.xml</string>
-    <string name="editTextTextMultiLine2_hint">Get your filtered strings.xml</string>
+    <string name="editTextTextMultiLine2_hint">Take your filtered strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Paste your translated strings.xml</string>
-    <string name="editTextTextMultiLine4_hint">Get your strings.xml structured as raw with translation provided</string>
+    <string name="editTextTextMultiLine4_hint">Take your strings.xml structured with the translation provided</string>
     <!--    End editTextTextMultiLine-->
-    
+
 </resources>

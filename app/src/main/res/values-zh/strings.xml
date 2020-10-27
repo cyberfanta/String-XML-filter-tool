@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">String XML 过滤器工具</string>
+    <string name="notImplemented">功能尚未实现</string>
+    <string name="permissionGranted">授予的权限</string>
+    <string name="permissionNotGranted">权限未授予</string>
+    <string name="noIntentFound">找不到合适的文件管理器</string>
+    <string name="fileOpen">选择strings.xml文件的位置</string>
+    <string name="fileSave">选择文件夹以保存新的strings.xml</string>
+    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
+    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+    <string name="noPlainText">剪贴板上没有纯文本</string>
+    <string name="textCopied">文字已复制到剪贴板</string>
+    <string name="processDone">处理完成</string>
+    <string name="stringxmlFormatWrong">错误的strings.xml格式</string>
+    <string name="stringxmlTranslatedFormatWrong">错误翻译的strings.xml格式</string>
+    <string name="stringxmlFormatEmpty">strings.xml格式为空，请填写</string>
+    <string name="buttonBack_text">背后</string>
+    <string name="buttonNext_text">下一个</string>
+    <string name="buttonRestart_text">重新开始</string>
+    <string name="buttonOpenFile_text">打开文件</string>
+    <string name="buttonSaveFile_text">保存存档</string>
+    <string name="button1_text">糊</string>
+    <string name="button2_text">复制</string>
+    <string name="button3_text">糊</string>
+    <string name="button4_text">复制</string>
+    <string name="buttonAutoTranslate_text">使用Google自动翻译</string>
+    <string name="editTextTextMultiLine1_hint">插入原始的strings.xml</string>
+    <string name="editTextTextMultiLine2_hint">带上您过滤的strings.xml</string>
+    <string name="editTextTextMultiLine3_hint">粘贴翻译后的strings.xml</string>
+    <string name="editTextTextMultiLine4_hint">使用提供的翻译复制结构化的strings.xml</string>
+</resources>

@@ -15,14 +15,18 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -45,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
     Vector <String> names = new Vector<>(0);
     String contents;
 
+    InterstitialAd interstitialAd;
+    int adCounter = 0;
+
     final int FOLDERPICKER_CODE_SAVE = 1;
     final int FOLDERPICKER_CODE_OPEN = 2;
+    String fileLocation = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,21 +69,34 @@ public class MainActivity extends AppCompatActivity {
         deviceWidth = displayMetrics.widthPixels;
 //        deviceHeight = displayMetrics.heightPixels;
 
+        // Keep keyboard hidden
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
         // Loading Ads
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
         });
 
+        // Banner
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, DeviceUtils.convertPxToDp(this, deviceWidth)));
         adView.setAdUnitId(getString(R.string.ads_footer));
-
-        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
-
-        final AdView adView1 = findViewById(R.id.adView);
+        AdView adView1 = findViewById(R.id.adView);
         adView1.addView(adView);
-        adView.loadAd(adRequestBuilder.build());
+        adView.loadAd(new AdRequest.Builder().build());
+
+        // Instersicial
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getString(R.string.ads_intersticial));
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                interstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+        });
     }
 
 //    -----
@@ -191,7 +212,6 @@ public class MainActivity extends AppCompatActivity {
      *  Move horizontalScroll to end
      */
     public void horizontalScrollEnd (View view) {
-        horizontalScroll(View.FOCUS_RIGHT);
         if (view.getId() == R.id.ll3) {
             EditText editText = findViewById(R.id.editTextTextMultiLine3);
             String string = editText.getText().toString();
@@ -199,9 +219,10 @@ public class MainActivity extends AppCompatActivity {
                 returnXml(string);
                 editText = findViewById(R.id.editTextTextMultiLine4);
                 editText.setText(contents);
-
+                loadInterstitialAdd();
             }
         }
+        horizontalScroll(View.FOCUS_RIGHT);
     }
 
     /**
@@ -313,8 +334,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FolderPicker.class);
         intent.putExtra("title", getString(R.string.fileSave));
-        intent.putExtra("location", Objects.requireNonNull(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)).getAbsolutePath());
+        if (fileLocation.equals(""))
+            intent.putExtra("location", Environment.getExternalStorageDirectory().getPath());
+        else
+            intent.putExtra("location", fileLocation);
         startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
+        loadInterstitialAdd();
     }
 
     /**
@@ -339,9 +364,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        Intent intent = new Intent(this, FolderPicker.class);
+        Intent intent = new Intent(this, FolderPicker.class);//"/sdcard/stringsxmlfiltertool"
         intent.putExtra("title", getString(R.string.fileOpen));
-        intent.putExtra("location", Objects.requireNonNull(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)).getAbsolutePath());
+        if (fileLocation.equals(""))
+            intent.putExtra("location", Environment.getExternalStorageDirectory().getPath());
+        else
+            intent.putExtra("location", fileLocation);
         intent.putExtra("pickFiles", true);
         startActivityForResult(intent, FOLDERPICKER_CODE_OPEN);
     }
@@ -356,13 +384,12 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if (requestCode == FOLDERPICKER_CODE_SAVE && resultCode == Activity.RESULT_OK) {
-            String path = Objects.requireNonNull(intent.getExtras()).getString("data");
-            ProjectUtils.PrintLogI("path: " + path);
+            fileLocation = Objects.requireNonNull(intent.getExtras()).getString("data");
 
             EditText editText = findViewById(R.id.editTextTextMultiLine4);
             String string = editText.getText().toString();
             if (!string.isEmpty()) {
-                File file = new File(path, "strings.xml");
+                File file = new File(fileLocation, "strings.xml");
                 try {
                     BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
                     bufferedWriter.write(string);
@@ -373,11 +400,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), R.string.processDone, Toast.LENGTH_SHORT).show();
         } else if (requestCode == FOLDERPICKER_CODE_OPEN && resultCode == Activity.RESULT_OK) {
             String path = Objects.requireNonNull(intent.getExtras()).getString("data");
-            ProjectUtils.PrintLogI("path: " + path);
 
             File file = null;
-            if (path != null)
+            if (path != null) {
+                fileLocation = path.substring(0, path.lastIndexOf(File.separator) + 1);
                 file = new File(path);
+            }
 
             if (file != null){
                 String lines = "", line;
@@ -418,5 +446,21 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), R.string.notImplemented, Toast.LENGTH_LONG).show();
         return false; // Modify from here
+    }
+
+    /**
+     * Manage the loading of Interstitial Ads
+     */
+    public void loadInterstitialAdd () {
+        if (adCounter > 1) {
+            if (interstitialAd.isLoaded()) {
+                interstitialAd.show();
+                adCounter = 0;
+                return;
+            }
+            else
+                Log.i("","****** NO ESTA CARGADA LA PUBLICIDAD");
+        }
+        adCounter++;
     }
 }

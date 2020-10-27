@@ -28,14 +28,15 @@
     <dimen name="buttonAutoTranslate_textSize">24sp</dimen>
     <dimen name="buttonAutoTranslate_margin">10dp</dimen>
     <dimen name="buttonAutoTranslate_padding">10dp</dimen>
+    <dimen name="buttonAutoTranslate_weightSum">2</dimen>
     <dimen name="buttonAutoTranslate_weight1">.15</dimen>
     <dimen name="buttonAutoTranslate_weight2">.4</dimen>
     <dimen name="buttonAutoTranslate_weight3">.35</dimen>
-    <dimen name="buttonAutoTranslate_layout_width">160dp</dimen>
+    <dimen name="buttonAutoTranslate_layout_width">180dp</dimen>
     <dimen name="buttonAutoTranslate_layout_width2">80dp</dimen>
 
     <!--    linearLayoutHorizontal1-->
-    <dimen name="linearLayoutHorizontal1_layout_height">100dp</dimen>
+    <dimen name="linearLayoutHorizontal1_layout_height">110dp</dimen>
 
     <!--    Backgrounds-->
     <dimen name="background_stroke">2dp</dimen>

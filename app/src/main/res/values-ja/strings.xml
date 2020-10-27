@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">String XMLフィルターツール</string>
+    <string name="notImplemented">機能はまだ実装されていません</string>
+    <string name="permissionGranted">付与された権限</string>
+    <string name="permissionNotGranted">権限が付与されていません</string>
+    <string name="noIntentFound">適切なファイルマネージャーが見つかりません</string>
+    <string name="fileOpen">strings.xmlファイルの場所を選択します</string>
+    <string name="fileSave">新しいstrings.xmlを保存するフォルダを選択します</string>
+    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
+    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+    <string name="noPlainText">クリップボードにプレーンテキストはありません</string>
+    <string name="textCopied">クリップボードにコピーされたテキスト</string>
+    <string name="processDone">完了したプロセス</string>
+    <string name="stringxmlFormatWrong">間違ったstrings.xml形式</string>
+    <string name="stringxmlTranslatedFormatWrong">間違って翻訳されたstrings.xml形式</string>
+    <string name="stringxmlFormatEmpty">strings.xml形式は空です。入力してください</string>
+    <string name="buttonBack_text">後ろに</string>
+    <string name="buttonNext_text">次</string>
+    <string name="buttonRestart_text">再起動</string>
+    <string name="buttonOpenFile_text">ファイルを開く</string>
+    <string name="buttonSaveFile_text">ファイルを保存</string>
+    <string name="button1_text">ペースト</string>
+    <string name="button2_text">コピー</string>
+    <string name="button3_text">ペースト</string>
+    <string name="button4_text">コピー</string>
+    <string name="buttonAutoTranslate_text">Googleによる自動翻訳</string>
+    <string name="editTextTextMultiLine1_hint">生のstrings.xmlを挿入します</string>
+    <string name="editTextTextMultiLine2_hint">フィルタリングされたstrings.xmlを取得します</string>
+    <string name="editTextTextMultiLine3_hint">翻訳したstrings.xmlを貼り付けます</string>
+    <string name="editTextTextMultiLine4_hint">提供された翻訳を使用して構造化strings.xmlをコピーします</string>
+</resources>
