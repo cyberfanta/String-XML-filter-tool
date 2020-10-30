@@ -215,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
         if (view.getId() == R.id.ll3) {
             EditText editText = findViewById(R.id.editTextTextMultiLine3);
             String string = editText.getText().toString();
+            editText.clearFocus();
             if (!string.isEmpty()) {
                 returnXml(string);
                 editText = findViewById(R.id.editTextTextMultiLine4);
@@ -332,14 +333,18 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        Intent intent = new Intent(this, FolderPicker.class);
-        intent.putExtra("title", getString(R.string.fileSave));
-        if (fileLocation.equals(""))
-            intent.putExtra("location", Environment.getExternalStorageDirectory().getPath());
-        else
-            intent.putExtra("location", fileLocation);
-        startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
-        loadInterstitialAdd();
+        //Checking text edit is not empty
+        EditText editText = findViewById(R.id.editTextTextMultiLine4);
+        if (!editText.getText().toString().equals("")) {
+            Intent intent = new Intent(this, FolderPicker.class);
+            intent.putExtra("title", getString(R.string.fileSave));
+            if (fileLocation.equals(""))
+                intent.putExtra("location", Environment.getExternalStorageDirectory().getPath());
+            else
+                intent.putExtra("location", fileLocation);
+            startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
+            loadInterstitialAdd();
+        }
     }
 
     /**
@@ -444,8 +449,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        // Modify from here
         Toast.makeText(getApplicationContext(), R.string.notImplemented, Toast.LENGTH_LONG).show();
-        return false; // Modify from here
+        return string.equals("false");
     }
 
     /**
