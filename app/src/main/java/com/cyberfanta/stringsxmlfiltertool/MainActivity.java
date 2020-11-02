@@ -339,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, FolderPicker.class);
             intent.putExtra("title", getString(R.string.fileSave));
             if (fileLocation.equals(""))
-                intent.putExtra("location", Environment.getExternalStorageDirectory().getPath());
+                intent.putExtra("location", "");
             else
                 intent.putExtra("location", fileLocation);
             startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
@@ -372,7 +372,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FolderPicker.class);//"/sdcard/stringsxmlfiltertool"
         intent.putExtra("title", getString(R.string.fileOpen));
         if (fileLocation.equals(""))
-            intent.putExtra("location", Environment.getExternalStorageDirectory().getPath());
+//            intent.putExtra("location", Environment.getExternalStorageDirectory().getPath());
+            intent.putExtra("location", "");
         else
             intent.putExtra("location", fileLocation);
         intent.putExtra("pickFiles", true);
