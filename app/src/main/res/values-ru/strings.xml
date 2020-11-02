@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Инструмент фильтрации String XML</string>
+    <string name="app_name">String XML Инструмент фильтра</string>
     <string name="notImplemented">Функция еще не реализована</string>
     <string name="permissionGranted">Разрешения предоставлены</string>
     <string name="permissionNotGranted">Разрешения не предоставлены</string>

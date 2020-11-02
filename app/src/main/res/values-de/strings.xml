@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">XML String Filter Tool</string>
+    <string name="app_name">String XML Filter Tool</string>
     <string name="notImplemented">Funktion noch nicht implementiert</string>
     <string name="permissionGranted">Berechtigungen erteilt</string>
     <string name="permissionNotGranted">Berechtigungen nicht erteilt</string>
