@@ -28,4 +28,7 @@
     <string name="editTextTextMultiLine2_hint">Prenez vos strings.xml filtrés</string>
     <string name="editTextTextMultiLine3_hint">Collez votre strings.xml traduit</string>
     <string name="editTextTextMultiLine4_hint">Copiez votre strings.xml structuré avec la traduction fournie</string>
+    <string name="item_policy">Politique de confidentialité</string>
+    <string name="item_rate">Évaluez notre application</string>
+    <string name="item_about">À propos</string>
 </resources>

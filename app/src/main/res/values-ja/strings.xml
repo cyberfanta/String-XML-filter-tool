@@ -28,4 +28,7 @@
     <string name="editTextTextMultiLine2_hint">フィルタリングされたstrings.xmlを取得します</string>
     <string name="editTextTextMultiLine3_hint">翻訳したstrings.xmlを貼り付けます</string>
     <string name="editTextTextMultiLine4_hint">提供された翻訳を使用して構造化strings.xmlをコピーします</string>
+    <string name="item_policy">個人情報保護方針</string>
+    <string name="item_rate">アプリケーションを評価する</string>
+    <string name="item_about">約</string>
 </resources>

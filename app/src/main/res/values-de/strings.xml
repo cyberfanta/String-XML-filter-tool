@@ -28,4 +28,7 @@
     <string name="editTextTextMultiLine2_hint">Nehmen Sie Ihre gefilterte string.xml</string>
     <string name="editTextTextMultiLine3_hint">Fügen Sie Ihre übersetzte Zeichenfolge.xml ein</string>
     <string name="editTextTextMultiLine4_hint">Kopieren Sie Ihre strukturierte Datei strings.xml mit der bereitgestellten Übersetzung</string>
+    <string name="item_policy">Datenschutz-Bestimmungen</string>
+    <string name="item_rate">Bewerten Sie unsere Bewerbung</string>
+    <string name="item_about">Über</string>
 </resources>

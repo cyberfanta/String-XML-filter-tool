@@ -28,4 +28,7 @@
     <string name="editTextTextMultiLine2_hint">带上您过滤的strings.xml</string>
     <string name="editTextTextMultiLine3_hint">粘贴翻译后的strings.xml</string>
     <string name="editTextTextMultiLine4_hint">使用提供的翻译复制结构化的strings.xml</string>
+    <string name="item_policy">隐私政策</string>
+    <string name="item_rate">评价我们的应用</string>
+    <string name="item_about">关于</string>
 </resources>

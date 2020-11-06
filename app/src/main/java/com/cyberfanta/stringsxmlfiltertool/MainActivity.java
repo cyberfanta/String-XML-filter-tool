@@ -5,17 +5,22 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -30,6 +35,10 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.tasks.OnCompleteListener;
+import com.google.android.play.core.tasks.Task;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -55,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
     final int FOLDERPICKER_CODE_SAVE = 1;
     final int FOLDERPICKER_CODE_OPEN = 2;
     String fileLocation = "";
+
+    ReviewManager reviewManager;
+    ReviewInfo reviewInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -454,6 +466,48 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), R.string.notImplemented, Toast.LENGTH_LONG).show();
         return string.equals("false");
     }
+
+    /**
+     *  Create the setting menu of the application
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    /**
+     *  Handle the setting menu of the application
+     */
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_policy:
+                Uri uri = Uri.parse("https://docs.google.com/document/d/1jO9nnmsjG2ZO0Si1rEBTAP2kmTin5h-qIb4nhuAN5H0/edit?usp=sharing");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                return true;
+            case R.id.item_rate:
+                Task<Void> flow = reviewManager.launchReviewFlow(MainActivity.this, reviewInfo);
+                flow.addOnCompleteListener(
+                        new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(Task<Void> task) {
+                            }
+                        }
+                );
+                return true;
+            case R.id.item_about:
+                //todo: do activity with the author
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+//    ---
 
     /**
      * Manage the loading of Interstitial Ads

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/ic__844437_hamburger_list_menu_more_navigation_110311"
+        android:orderInCategory="101"
+        android:title=""
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/item_policy"
+                android:icon="@drawable/ic_privacy_tip_24px"
+                android:orderInCategory="100"
+                android:title="@string/item_policy"
+                app:showAsAction="ifRoom|withText" />
+            <item
+                android:id="@+id/item_rate"
+                android:icon="@drawable/ic_rate_review_24px"
+                android:orderInCategory="100"
+                android:title="@string/item_rate"
+                app:showAsAction="ifRoom|withText" />
+            <item
+                android:id="@+id/item_about"
+                android:icon="@drawable/ic_self_improvement_24px"
+                android:orderInCategory="100"
+                android:title="@string/item_about"
+                app:showAsAction="ifRoom|withText" />
+        </menu>
+    </item>
+</menu>

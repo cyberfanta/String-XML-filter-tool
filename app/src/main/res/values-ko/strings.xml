@@ -28,4 +28,7 @@
     <string name="editTextTextMultiLine2_hint">필터링 된 strings.xml 가져 오기</string>
     <string name="editTextTextMultiLine3_hint">번역 된 strings.xml 붙여 넣기</string>
     <string name="editTextTextMultiLine4_hint">제공된 번역으로 구조화 된 strings.xml을 복사합니다.</string>
+    <string name="item_policy">개인 정보 정책</string>
+    <string name="item_rate">애플리케이션 평가</string>
+    <string name="item_about">약</string>
 </resources>

@@ -45,4 +45,10 @@
     <string name="editTextTextMultiLine4_hint">Take your strings.xml structured with the translation provided</string>
     <!--    End editTextTextMultiLine-->
 
+    <!--    Menú items-->
+    <string name="item_policy">Privacy Policy</string>
+    <string name="item_rate">Rate our app</string>
+    <string name="item_about">About</string>
+    <!--    End Menú items-->
+
 </resources>

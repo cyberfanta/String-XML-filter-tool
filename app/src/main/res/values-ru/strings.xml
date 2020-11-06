@@ -28,4 +28,7 @@
     <string name="editTextTextMultiLine2_hint">Возьмите отфильтрованный strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Вставьте переведенный файл strings.xml</string>
     <string name="editTextTextMultiLine4_hint">Скопируйте свой структурированный strings.xml с предоставленным переводом</string>
+    <string name="item_policy">политика конфиденциальности</string>
+    <string name="item_rate">Оцените наше приложение</string>
+    <string name="item_about">Около</string>
 </resources>
