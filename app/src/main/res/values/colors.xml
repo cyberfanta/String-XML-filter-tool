@@ -30,5 +30,6 @@
     <color name="colorGrayScale4">#CDCDB6</color>
     <!--    End Color Pallette-->
 
+    <color name="colorBackground_author">#80000000</color>
 
 </resources>

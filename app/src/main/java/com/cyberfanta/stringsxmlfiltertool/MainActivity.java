@@ -1,6 +1,7 @@
 package com.cyberfanta.stringsxmlfiltertool;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -500,7 +501,8 @@ public class MainActivity extends AppCompatActivity {
                 );
                 return true;
             case R.id.item_about:
-                //todo: do activity with the author
+                ConstraintLayout constraintLayout = findViewById(R.id.author);
+                constraintLayout.setVisibility(View.VISIBLE);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -524,4 +526,15 @@ public class MainActivity extends AppCompatActivity {
         }
         adCounter++;
     }
+
+    //    ---
+
+    /**
+     * Show the developer info
+     */
+    public void author_selected (View view) {
+        ConstraintLayout constraintLayout = findViewById(R.id.author);
+        constraintLayout.setVisibility(View.GONE);
+    }
+
 }

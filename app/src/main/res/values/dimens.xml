@@ -44,12 +44,21 @@
     <dimen name="button_background_stroke">3dp</dimen>
     <dimen name="button_background_centerY">15%</dimen>
 
-<!--    horizontalScrollView-->
+    <!--    horizontalScrollView-->
     <integer name="horizontalScrollView1">377</integer>
     <integer name="horizontalScrollView2">624</integer>
     <integer name="horizontalScrollView3">907</integer>
 
-<!--    openFile-->
+    <!--    openFile-->
     <dimen name="openFile_layout_width">70dp</dimen>
+
+    <!--    Author-->
+    <dimen name="author_padding">15dp</dimen>
+    <dimen name="author_margin">5dp</dimen>
+    <dimen name="author_image_size">120dp</dimen>
+    <dimen name="author_image_margin">5dp</dimen>
+    <dimen name="author_text_heigth_1">30dp</dimen>
+    <dimen name="author_text_heigth_2">20dp</dimen>
+    <dimen name="author_text_shadow_radius">3</dimen>
 
 </resources>
