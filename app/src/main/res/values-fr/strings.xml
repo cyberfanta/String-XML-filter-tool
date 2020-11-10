@@ -1,34 +1,56 @@
 <resources>
     <string name="app_name">String XML Outil de filtre</string>
-    <string name="notImplemented">Fonction non encore implémentée</string>
+
+
+    <string name="notImplemented">Fonction toujours pas implémentée</string>
+
+    <!--    Permissions-->
     <string name="permissionGranted">Autorisations accordées</string>
     <string name="permissionNotGranted">Autorisations non accordées</string>
-    <string name="noIntentFound">Aucun gestionnaire de fichiers approprié trouvé</string>
-    <string name="fileOpen">Sélectionnez l\'emplacement du fichier strings.xml</string>
+    <string name="noIntentFound">Aucun gestionnaire de fichiers approprié n\'a été trouvé</string>
+    <string name="fileOpen">Sélectionnez l\'emplacement du fichier de strings.xml</string>
     <string name="fileSave">Sélectionnez le dossier pour enregistrer vos nouveaux strings.xml</string>
-    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
-    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+    <!--    End Permissions-->
+
+    <!--    AdsView-->
+    <!--    End Adsview-->
+
+    <!--    clipboard-->
     <string name="noPlainText">Il n\'y a pas de texte brut dans votre presse-papiers</string>
     <string name="textCopied">Texte copié dans votre presse-papiers</string>
     <string name="processDone">Processus terminé</string>
-    <string name="stringxmlFormatWrong">format strings.xml incorrect</string>
+    <string name="stringxmlFormatWrong">Format strings.xml incorrect</string>
     <string name="stringxmlTranslatedFormatWrong">format strings.xml traduit incorrect</string>
-    <string name="stringxmlFormatEmpty">Le format strings.xml est vide, remplissez-le</string>
-    <string name="buttonBack_text">derrière</string>
-    <string name="buttonNext_text">prochain</string>
+    <string name="stringxmlFormatEmpty">Le format strings.xml est vide, veuillez le remplir</string>
+    <!--    End clipboard-->
+
+    <!--    button-->
+    <string name="buttonBack_text">Retour</string>
+    <string name="buttonNext_text">Suivant</string>
     <string name="buttonRestart_text">Redémarrer</string>
     <string name="buttonOpenFile_text">Fichier ouvert</string>
     <string name="buttonSaveFile_text">Enregistrer le fichier</string>
     <string name="button1_text">Pâte</string>
-    <string name="button2_text">Copier</string>
+    <string name="button2_text">Copie</string>
     <string name="button3_text">Pâte</string>
-    <string name="button4_text">Copier</string>
-    <string name="buttonAutoTranslate_text">Traduire automatiquement avec Google</string>
+    <string name="button4_text">Copie</string>
+    <string name="buttonAutoTranslate_text">Traduction automatique avec Google</string>
+    <!--    End button-->
+
+    <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Insérer des chaînes brutes.xml</string>
     <string name="editTextTextMultiLine2_hint">Prenez vos strings.xml filtrés</string>
     <string name="editTextTextMultiLine3_hint">Collez votre strings.xml traduit</string>
-    <string name="editTextTextMultiLine4_hint">Copiez votre strings.xml structuré avec la traduction fournie</string>
+    <string name="editTextTextMultiLine4_hint">Prenez votre strings.xml structuré avec la traduction fournie</string>
+    <!--    End editTextTextMultiLine-->
+
+    <!--    Menú items-->
     <string name="item_policy">Politique de confidentialité</string>
     <string name="item_rate">Évaluez notre application</string>
     <string name="item_about">À propos</string>
+    <!--    End Menú items-->
+
+    <!--    Author-->
+    <!--    End Author-->
+
 </resources>

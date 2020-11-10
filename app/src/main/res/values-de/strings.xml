@@ -1,22 +1,33 @@
 <resources>
     <string name="app_name">String XML Filter Tool</string>
+
+
     <string name="notImplemented">Funktion noch nicht implementiert</string>
+
+    <!--    Permissions-->
     <string name="permissionGranted">Berechtigungen erteilt</string>
     <string name="permissionNotGranted">Berechtigungen nicht erteilt</string>
-    <string name="noIntentFound">Kein passender Dateimanager gefunden</string>
-    <string name="fileOpen">Wählen Sie den Speicherort der Datei strings.xml aus</string>
-    <string name="fileSave">Wählen Sie den Ordner aus, in dem Sie Ihre neue Datei strings.xml speichern möchten</string>
-    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
-    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+    <string name="noIntentFound">Es wurde kein geeigneter Dateimanager gefunden</string>
+    <string name="fileOpen">Wählen Sie den Dateispeicherort von strings.xml</string>
+    <string name="fileSave">Wählen Sie einen Ordner aus, um Ihre neue Datei strings.xml zu speichern</string>
+    <!--    End Permissions-->
+
+    <!--    AdsView-->
+    <!--    End Adsview-->
+
+    <!--    clipboard-->
     <string name="noPlainText">In Ihrer Zwischenablage befindet sich kein einfacher Text</string>
     <string name="textCopied">Text in Ihre Zwischenablage kopiert</string>
     <string name="processDone">Prozess erledigt</string>
-    <string name="stringxmlFormatWrong">falsches Format strings.xml</string>
-    <string name="stringxmlTranslatedFormatWrong">falsch übersetztes Format strings.xml</string>
-    <string name="stringxmlFormatEmpty">Das Format strings.xml ist leer. Füllen Sie es aus</string>
-    <string name="buttonBack_text">hinter</string>
+    <string name="stringxmlFormatWrong">string.xml Format falsch</string>
+    <string name="stringxmlTranslatedFormatWrong">übersetztes Format string.xml falsch</string>
+    <string name="stringxmlFormatEmpty">Das Format strings.xml ist leer. Bitte füllen Sie es aus</string>
+    <!--    End clipboard-->
+
+    <!--    button-->
+    <string name="buttonBack_text">Zurück</string>
     <string name="buttonNext_text">Nächster</string>
-    <string name="buttonRestart_text">Neu starten</string>
+    <string name="buttonRestart_text">Neustart</string>
     <string name="buttonOpenFile_text">Datei öffnen</string>
     <string name="buttonSaveFile_text">Datei speichern</string>
     <string name="button1_text">Einfügen</string>
@@ -24,11 +35,22 @@
     <string name="button3_text">Einfügen</string>
     <string name="button4_text">Kopieren</string>
     <string name="buttonAutoTranslate_text">Automatische Übersetzung mit Google</string>
+    <!--    End button-->
+
+    <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Fügen Sie raw strings.xml ein</string>
     <string name="editTextTextMultiLine2_hint">Nehmen Sie Ihre gefilterte string.xml</string>
     <string name="editTextTextMultiLine3_hint">Fügen Sie Ihre übersetzte Zeichenfolge.xml ein</string>
-    <string name="editTextTextMultiLine4_hint">Kopieren Sie Ihre strukturierte Datei strings.xml mit der bereitgestellten Übersetzung</string>
+    <string name="editTextTextMultiLine4_hint">Nehmen Sie Ihre strings.xml mit der bereitgestellten Übersetzung strukturiert</string>
+    <!--    End editTextTextMultiLine-->
+
+    <!--    Menú items-->
     <string name="item_policy">Datenschutz-Bestimmungen</string>
-    <string name="item_rate">Bewerten Sie unsere Bewerbung</string>
+    <string name="item_rate">Bewerten Sie unsere App</string>
     <string name="item_about">Über</string>
+    <!--    End Menú items-->
+
+    <!--    Author-->
+    <!--    End Author-->
+
 </resources>

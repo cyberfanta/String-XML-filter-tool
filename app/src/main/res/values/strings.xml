@@ -14,8 +14,8 @@
     <!--    End Permissions-->
 
     <!--    AdsView-->
-    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
-    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+    <string name="ads_footer" translatable="false">ca-app-pub-2321980263900338/1932074368</string>
+    <string name="ads_intersticial" translatable="false">ca-app-pub-2321980263900338/6925380744</string>
     <!--    End Adsview-->
 
     <!--    clipboard-->

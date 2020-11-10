@@ -57,6 +57,7 @@ import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 public class MainActivity extends AppCompatActivity {
 
     Vector <String> names = new Vector<>(0);
+    Vector <String> rows = new Vector<>(0);
     String contents;
 
     InterstitialAd interstitialAd;
@@ -233,8 +234,8 @@ public class MainActivity extends AppCompatActivity {
                 returnXml(string);
                 editText = findViewById(R.id.editTextTextMultiLine4);
                 editText.setText(contents);
-                loadInterstitialAdd();
             }
+            loadInterstitialAdd();
         }
         horizontalScroll(View.FOCUS_RIGHT);
     }
@@ -277,8 +278,16 @@ public class MainActivity extends AppCompatActivity {
             return;
         } else {
             contents = "";
+            rows.clear();
+            names.clear();
+
             for (String line : lines ) {
-                if (line.contains("<!--") || line.contains("resources") || !line.contains("<"))
+                if (line.contains("<!--") || line.contains("resources") || line.contains("encoding") || !line.contains("<")) {
+                    rows.add(line);
+                    continue;
+                }
+
+                if (line.contains("translatable=\"false\""))
                     continue;
 
                 String[] name = line.split("\"");
@@ -286,6 +295,7 @@ public class MainActivity extends AppCompatActivity {
                     continue;
 
                 names.add(name[1]);
+                rows.add("filled");
 
                 String[] content = name[2].split("<");
                 if (content.length < 2)
@@ -312,13 +322,16 @@ public class MainActivity extends AppCompatActivity {
             horizontalScroll(View.FOCUS_LEFT);
             return;
         } else {
-            contents = "<resources>\n";
-            int i=0;
-            for (String line : lines ) {
-                contents = contents.concat("    <string name=\"").concat(names.get(i)).concat("\">").concat(line).concat("</string>\n");
-                i++;
+            contents = "";
+            int j = 0;
+            for (int i = 0; i < rows.size(); i++) {
+                if (rows.elementAt(i).equals("filled")) {
+                    contents = contents.concat("    <string name=\"").concat(names.get(j)).concat("\">").concat(lines[j]).concat("</string>\n");
+                    j++;
+                } else {
+                    contents = contents.concat(rows.elementAt(i).concat("\n"));
+                }
             }
-            contents = contents.concat("</resources>");
         }
 
         Toast.makeText(getApplicationContext(), R.string.processDone, Toast.LENGTH_SHORT).show();

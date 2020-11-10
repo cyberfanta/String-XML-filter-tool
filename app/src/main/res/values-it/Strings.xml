@@ -7,8 +7,6 @@
     <string name="noIntentFound">Non è stato trovato alcun file manager adatto</string>
     <string name="fileOpen">Seleziona il percorso del file strings.xml</string>
     <string name="fileSave">Seleziona la cartella per salvare il tuo nuovo strings.xml</string>
-    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
-    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
     <string name="noPlainText">Non c\'è un testo normale negli appunti</string>
     <string name="textCopied">Testo copiato negli appunti</string>
     <string name="processDone">Processo completato</string>

@@ -1,22 +1,33 @@
 <resources>
     <string name="app_name">String XML Инструмент фильтра</string>
-    <string name="notImplemented">Функция еще не реализована</string>
+
+
+    <string name="notImplemented">Функция все еще не реализована</string>
+
+    <!--    Permissions-->
     <string name="permissionGranted">Разрешения предоставлены</string>
     <string name="permissionNotGranted">Разрешения не предоставлены</string>
-    <string name="noIntentFound">Не найдено подходящего файлового менеджера</string>
+    <string name="noIntentFound">Подходящего файлового менеджера не найдено</string>
     <string name="fileOpen">Выберите расположение файла strings.xml</string>
-    <string name="fileSave">Выберите папку для сохранения вашего нового strings.xml</string>
-    <string name="ads_footer">ca-app-pub-2321980263900338/1932074368</string>
-    <string name="ads_intersticial">ca-app-pub-2321980263900338/6925380744</string>
+    <string name="fileSave">Выберите папку для сохранения нового strings.xml</string>
+    <!--    End Permissions-->
+
+    <!--    AdsView-->
+    <!--    End Adsview-->
+
+    <!--    clipboard-->
     <string name="noPlainText">В буфере обмена нет простого текста</string>
     <string name="textCopied">Текст скопирован в буфер обмена</string>
     <string name="processDone">Процесс завершен</string>
-    <string name="stringxmlFormatWrong">неправильный формат strings.xml</string>
-    <string name="stringxmlTranslatedFormatWrong">неверно переведенный формат strings.xml</string>
-    <string name="stringxmlFormatEmpty">Формат strings.xml пустой, заполните его</string>
-    <string name="buttonBack_text">за</string>
+    <string name="stringxmlFormatWrong">неверный формат strings.xml</string>
+    <string name="stringxmlTranslatedFormatWrong">переведен неверный формат strings.xml</string>
+    <string name="stringxmlFormatEmpty">Формат strings.xml пуст, заполните его</string>
+    <!--    End clipboard-->
+
+    <!--    button-->
+    <string name="buttonBack_text">Назад</string>
     <string name="buttonNext_text">следующий</string>
-    <string name="buttonRestart_text">Перезапуск</string>
+    <string name="buttonRestart_text">Начать сначала</string>
     <string name="buttonOpenFile_text">Открыть файл</string>
     <string name="buttonSaveFile_text">Сохранить файл</string>
     <string name="button1_text">Вставить</string>
@@ -24,11 +35,22 @@
     <string name="button3_text">Вставить</string>
     <string name="button4_text">Копировать</string>
     <string name="buttonAutoTranslate_text">Автоматический перевод с Google</string>
+    <!--    End button-->
+
+    <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Вставить необработанные strings.xml</string>
     <string name="editTextTextMultiLine2_hint">Возьмите отфильтрованный strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Вставьте переведенный файл strings.xml</string>
-    <string name="editTextTextMultiLine4_hint">Скопируйте свой структурированный strings.xml с предоставленным переводом</string>
+    <string name="editTextTextMultiLine4_hint">Возьмите свой strings.xml, структурированный с предоставленным переводом</string>
+    <!--    End editTextTextMultiLine-->
+
+    <!--    Menú items-->
     <string name="item_policy">политика конфиденциальности</string>
     <string name="item_rate">Оцените наше приложение</string>
     <string name="item_about">Около</string>
+    <!--    End Menú items-->
+
+    <!--    Author-->
+    <!--    End Author-->
+
 </resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">String XML filtre eina</string>
+
+
+    <string name="notImplemented">La funció encara no s\'ha implementat</string>
+
+    <!--    Permissions-->
+    <string name="permissionGranted">Permisos concedits</string>
+    <string name="permissionNotGranted">Permisos no concedits</string>
+    <string name="noIntentFound">No s\'ha trobat cap gestor de fitxers adequat</string>
+    <string name="fileOpen">Seleccioneu la ubicació del fitxer de strings.xml</string>
+    <string name="fileSave">Seleccioneu la carpeta per desar el nou strings.xml</string>
+    <!--    End Permissions-->
+
+    <!--    AdsView-->
+    <!--    End Adsview-->
+
+    <!--    clipboard-->
+    <string name="noPlainText">No hi ha cap text pla al porta-retalls</string>
+    <string name="textCopied">Text copiat al porta-retalls</string>
+    <string name="processDone">Procés realitzat</string>
+    <string name="stringxmlFormatWrong">format de strings.xml incorrecte</string>
+    <string name="stringxmlTranslatedFormatWrong">format de strings.xml traduït incorrecte</string>
+    <string name="stringxmlFormatEmpty">El format strings.xml és buit, ompliu-lo</string>
+    <!--    End clipboard-->
+
+    <!--    button-->
+    <string name="buttonBack_text">esquena</string>
+    <string name="buttonNext_text">Pròxim</string>
+    <string name="buttonRestart_text">Reinicia</string>
+    <string name="buttonOpenFile_text">Arxiu obert</string>
+    <string name="buttonSaveFile_text">Guardar arxiu</string>
+    <string name="button1_text">Enganxa</string>
+    <string name="button2_text">Copia</string>
+    <string name="button3_text">Enganxa</string>
+    <string name="button4_text">Copia</string>
+    <string name="buttonAutoTranslate_text">Traductor automàtic amb Google</string>
+    <!--    End button-->
+
+    <!--    editTextTextMultiLine-->
+    <string name="editTextTextMultiLine1_hint">Inseriu strings.xml en brut</string>
+    <string name="editTextTextMultiLine2_hint">Agafeu el vostre strings.xml filtrat</string>
+    <string name="editTextTextMultiLine3_hint">Enganxeu les vostres traduccions strings.xml</string>
+    <string name="editTextTextMultiLine4_hint">Agafeu el vostre strings.xml estructurat amb la traducció proporcionada</string>
+    <!--    End editTextTextMultiLine-->
+
+    <!--    Menú items-->
+    <string name="item_policy">Política de privacitat</string>
+    <string name="item_rate">Valora la nostra aplicació</string>
+    <string name="item_about">Sobre</string>
+    <!--    End Menú items-->
+
+    <!--    Author-->
+    <!--    End Author-->
+
+</resources>
