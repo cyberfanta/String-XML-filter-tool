@@ -7,8 +7,8 @@ android {
         applicationId "com.cyberfanta.stringxmlfiltertool"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 4
-        versionName "1.03"
+        versionCode 5
+        versionName "1.04"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,7 +26,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'lib.kashif:folderpicker:2.4'
