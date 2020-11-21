@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Strings XML Herramienta Filtro</string>
-
+    <string name="app_name">Herramienta de filtro Strings XML</string>
 
     <string name="notImplemented">Función aún no implementada</string>
 
@@ -10,10 +10,8 @@
     <string name="noIntentFound">No se encontró ningún administrador de archivos adecuado</string>
     <string name="fileOpen">Seleccione la ubicación del archivo de strings.xml</string>
     <string name="fileSave">Seleccione la carpeta para guardar su nuevo strings.xml</string>
-    <!--    End Permissions-->
 
     <!--    AdsView-->
-    <!--    End Adsview-->
 
     <!--    clipboard-->
     <string name="noPlainText">No hay un texto sin formato en su portapapeles</string>
@@ -22,7 +20,6 @@
     <string name="stringxmlFormatWrong">formato strings.xml incorrecto</string>
     <string name="stringxmlTranslatedFormatWrong">formato strings.xml traducido incorrecto</string>
     <string name="stringxmlFormatEmpty">El formato strings.xml está vacío, llénelo</string>
-    <!--    End clipboard-->
 
     <!--    button-->
     <string name="buttonBack_text">atrás</string>
@@ -35,22 +32,18 @@
     <string name="button3_text">Pegar</string>
     <string name="button4_text">Copiar</string>
     <string name="buttonAutoTranslate_text">Traducir automáticamente con Google</string>
-    <!--    End button-->
 
     <!--    editTextTextMultiLine-->
-    <string name="editTextTextMultiLine1_hint">Insertar strings.xml sin procesar</string>
+    <string name="editTextTextMultiLine1_hint">Insertar tu strings.xml sin procesar</string>
     <string name="editTextTextMultiLine2_hint">Toma tu strings.xml filtrado</string>
     <string name="editTextTextMultiLine3_hint">Pega tu strings.xml traducido</string>
     <string name="editTextTextMultiLine4_hint">Tome su strings.xml estructurado con la traducción proporcionada</string>
-    <!--    End editTextTextMultiLine-->
 
     <!--    Menú items-->
     <string name="item_policy">Política de privacidad</string>
     <string name="item_rate">Califica nuestra aplicación</string>
     <string name="item_about">Acerca de</string>
-    <!--    End Menú items-->
 
     <!--    Author-->
-    <!--    End Author-->
 
 </resources>

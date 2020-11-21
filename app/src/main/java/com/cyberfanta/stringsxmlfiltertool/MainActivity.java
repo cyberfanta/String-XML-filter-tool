@@ -326,6 +326,8 @@ public class MainActivity extends AppCompatActivity {
             int j = 0;
             for (int i = 0; i < rows.size(); i++) {
                 if (rows.elementAt(i).equals("filled")) {
+                    if (lines[j].contains("'"))
+                        lines[j] = lines[j].replaceAll("'", "\\\\'");
                     contents = contents.concat("    <string name=\"").concat(names.get(j)).concat("\">").concat(lines[j]).concat("</string>\n");
                     j++;
                 } else {

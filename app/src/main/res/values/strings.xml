@@ -1,8 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Strings XML filter tool</string>
 
     <string name="defaultContentDescription" translatable="false">defaultContentDescription</string>
-
     <string name="notImplemented">Function still not implemented</string>
 
     <!--    Permissions-->
@@ -11,12 +11,10 @@
     <string name="noIntentFound">No suitable File Manager was found</string>
     <string name="fileOpen">Select file location of strings.xml</string>
     <string name="fileSave">Select folder to save your new strings.xml</string>
-    <!--    End Permissions-->
 
     <!--    AdsView-->
     <string name="ads_footer" translatable="false">ca-app-pub-2321980263900338/1932074368</string>
     <string name="ads_intersticial" translatable="false">ca-app-pub-2321980263900338/6925380744</string>
-    <!--    End Adsview-->
 
     <!--    clipboard-->
     <string name="noPlainText">There is no a plain text on your clipboard</string>
@@ -25,7 +23,6 @@
     <string name="stringxmlFormatWrong">strings.xml format wrong</string>
     <string name="stringxmlTranslatedFormatWrong">translated strings.xml format wrong</string>
     <string name="stringxmlFormatEmpty">strings.xml format is empty please fill it</string>
-    <!--    End clipboard-->
 
     <!--    button-->
     <string name="buttonBack_text">Back</string>
@@ -38,20 +35,17 @@
     <string name="button3_text">Paste</string>
     <string name="button4_text">Copy</string>
     <string name="buttonAutoTranslate_text">Auto Translate with Google</string>
-    <!--    End button-->
 
     <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Insert raw strings.xml</string>
     <string name="editTextTextMultiLine2_hint">Take your filtered strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Paste your translated strings.xml</string>
     <string name="editTextTextMultiLine4_hint">Take your strings.xml structured with the translation provided</string>
-    <!--    End editTextTextMultiLine-->
 
     <!--    Menú items-->
     <string name="item_policy">Privacy Policy</string>
     <string name="item_rate">Rate our app</string>
     <string name="item_about">About</string>
-    <!--    End Menú items-->
 
     <!--    Author-->
     <string name="author_name_1" translatable="false">Julio César Alberto</string>
@@ -59,6 +53,5 @@
     <string name="author_profession" translatable="false">Android Developer - UI/UX Designer</string>
     <string name="author_email" translatable="false">masterjulioleon2004@gmail.com</string>
     <string name="author_phone" translatable="false">+58 (424) 225.92.20</string>
-    <!--    End Author-->
 
 </resources>

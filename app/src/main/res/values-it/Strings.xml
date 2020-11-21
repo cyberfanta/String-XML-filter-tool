@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Strumento di filtro XML per stringhe</string>
+    <string name="app_name">Strumento di filtro Strings XML</string>
+
     <string name="notImplemented">Funzione ancora non implementata</string>
+
+    <!--    Permissions-->
     <string name="permissionGranted">Autorizzazioni concesse</string>
     <string name="permissionNotGranted">Autorizzazioni non concesse</string>
     <string name="noIntentFound">Non è stato trovato alcun file manager adatto</string>
     <string name="fileOpen">Seleziona il percorso del file strings.xml</string>
     <string name="fileSave">Seleziona la cartella per salvare il tuo nuovo strings.xml</string>
+
+    <!--    AdsView-->
+
+    <!--    clipboard-->
     <string name="noPlainText">Non c\'è un testo normale negli appunti</string>
     <string name="textCopied">Testo copiato negli appunti</string>
     <string name="processDone">Processo completato</string>
     <string name="stringxmlFormatWrong">formato strings.xml sbagliato</string>
     <string name="stringxmlTranslatedFormatWrong">formato strings.xml tradotto sbagliato</string>
     <string name="stringxmlFormatEmpty">Il formato strings.xml è vuoto, riempilo</string>
+
+    <!--    button-->
     <string name="buttonBack_text">Indietro</string>
     <string name="buttonNext_text">Il prossimo</string>
     <string name="buttonRestart_text">Ricomincia</string>
@@ -23,11 +32,18 @@
     <string name="button3_text">Incolla</string>
     <string name="button4_text">copia</string>
     <string name="buttonAutoTranslate_text">Traduttore automatico con Google</string>
+
+    <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Inserisci raw strings.xml</string>
     <string name="editTextTextMultiLine2_hint">Prendi il tuo file strings.xml filtrato</string>
     <string name="editTextTextMultiLine3_hint">Incolla il file strings.xml tradotto</string>
     <string name="editTextTextMultiLine4_hint">Prendi il tuo strings.xml strutturato con la traduzione fornita</string>
+
+    <!--    Menú items-->
     <string name="item_policy">politica sulla riservatezza</string>
-    <string name="item_rate">Valuta la nostra applicazione</string>
+    <string name="item_rate">Valuta la nostra app</string>
     <string name="item_about">Di</string>
+
+    <!--    Author-->
+
 </resources>

@@ -1,56 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">String XML 过滤器工具</string>
+    <string name="app_name">Strings XML 過濾器工具</string>
 
-
-    <string name="notImplemented">功能仍未实现</string>
+    <string name="notImplemented">功能仍未實現</string>
 
     <!--    Permissions-->
-    <string name="permissionGranted">授予的权限</string>
-    <string name="permissionNotGranted">权限未授予</string>
-    <string name="noIntentFound">找不到合适的文件管理器</string>
-    <string name="fileOpen">选择strings.xml的文件位置</string>
-    <string name="fileSave">选择文件夹以保存新的strings.xml</string>
-    <!--    End Permissions-->
+    <string name="permissionGranted">授予的權限</string>
+    <string name="permissionNotGranted">權限未授予</string>
+    <string name="noIntentFound">找不到合適的文件管理器</string>
+    <string name="fileOpen">選擇strings.xml的文件位置</string>
+    <string name="fileSave">選擇文件夾以保存新的strings.xml</string>
 
     <!--    AdsView-->
-    <!--    End Adsview-->
 
     <!--    clipboard-->
-    <string name="noPlainText">剪贴板上没有纯文本</string>
-    <string name="textCopied">文字已复制到剪贴板</string>
-    <string name="processDone">处理完成</string>
-    <string name="stringxmlFormatWrong">strings.xml格式错误</string>
-    <string name="stringxmlTranslatedFormatWrong">翻译的strings.xml格式错误</string>
-    <string name="stringxmlFormatEmpty">strings.xml格式为空，请填写</string>
-    <!--    End clipboard-->
+    <string name="noPlainText">剪貼板上沒有純文本</string>
+    <string name="textCopied">文字已復製到剪貼板</string>
+    <string name="processDone">處理完成</string>
+    <string name="stringxmlFormatWrong">strings.xml格式錯誤</string>
+    <string name="stringxmlTranslatedFormatWrong">翻譯的strings.xml格式錯誤</string>
+    <string name="stringxmlFormatEmpty">strings.xml格式為空，請填寫</string>
 
     <!--    button-->
     <string name="buttonBack_text">背部</string>
-    <string name="buttonNext_text">下一个</string>
-    <string name="buttonRestart_text">重新开始</string>
-    <string name="buttonOpenFile_text">打开文件</string>
-    <string name="buttonSaveFile_text">保存存档</string>
+    <string name="buttonNext_text">下一個</string>
+    <string name="buttonRestart_text">重新開始</string>
+    <string name="buttonOpenFile_text">打開文件</string>
+    <string name="buttonSaveFile_text">保存存檔</string>
     <string name="button1_text">糊</string>
-    <string name="button2_text">复制</string>
+    <string name="button2_text">複製</string>
     <string name="button3_text">糊</string>
-    <string name="button4_text">复制</string>
-    <string name="buttonAutoTranslate_text">与Google自动翻译</string>
-    <!--    End button-->
+    <string name="button4_text">複製</string>
+    <string name="buttonAutoTranslate_text">與Google自動翻譯</string>
 
     <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">插入原始的strings.xml</string>
-    <string name="editTextTextMultiLine2_hint">带上您过滤的strings.xml</string>
-    <string name="editTextTextMultiLine3_hint">粘贴翻译后的strings.xml</string>
-    <string name="editTextTextMultiLine4_hint">使用提供的翻译来构建您的strings.xml</string>
-    <!--    End editTextTextMultiLine-->
+    <string name="editTextTextMultiLine2_hint">帶上您過濾的strings.xml</string>
+    <string name="editTextTextMultiLine3_hint">粘貼翻譯後的strings.xml</string>
+    <string name="editTextTextMultiLine4_hint">使用提供的翻譯來構建您的strings.xml</string>
 
     <!--    Menú items-->
-    <string name="item_policy">隐私政策</string>
-    <string name="item_rate">评价我们的应用</string>
-    <string name="item_about">关于</string>
-    <!--    End Menú items-->
+    <string name="item_policy">隱私政策</string>
+    <string name="item_rate">評價我們的應用</string>
+    <string name="item_about">關於</string>
 
     <!--    Author-->
-    <!--    End Author-->
 
 </resources>

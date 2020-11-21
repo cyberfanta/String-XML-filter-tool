@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">String XMLフィルターツール</string>
-
+    <string name="app_name">Strings XML フィルターツール</string>
 
     <string name="notImplemented">機能はまだ実装されていません</string>
 
@@ -10,10 +10,8 @@
     <string name="noIntentFound">適切なファイルマネージャが見つかりませんでした</string>
     <string name="fileOpen">strings.xmlのファイルの場所を選択します</string>
     <string name="fileSave">新しいstrings.xmlを保存するフォルダーを選択します</string>
-    <!--    End Permissions-->
 
     <!--    AdsView-->
-    <!--    End Adsview-->
 
     <!--    clipboard-->
     <string name="noPlainText">クリップボードにプレーンテキストはありません</string>
@@ -22,7 +20,6 @@
     <string name="stringxmlFormatWrong">strings.xmlの形式が間違っています</string>
     <string name="stringxmlTranslatedFormatWrong">翻訳されたstrings.xml形式が間違っています</string>
     <string name="stringxmlFormatEmpty">strings.xml形式は空です。入力してください</string>
-    <!--    End clipboard-->
 
     <!--    button-->
     <string name="buttonBack_text">バック</string>
@@ -35,22 +32,18 @@
     <string name="button3_text">ペースト</string>
     <string name="button4_text">コピー</string>
     <string name="buttonAutoTranslate_text">Googleによる自動翻訳</string>
-    <!--    End button-->
 
     <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">生のstrings.xmlを挿入します</string>
     <string name="editTextTextMultiLine2_hint">フィルタリングされたstrings.xmlを取得します</string>
     <string name="editTextTextMultiLine3_hint">翻訳したstrings.xmlを貼り付けます</string>
     <string name="editTextTextMultiLine4_hint">提供された翻訳で構造化されたstrings.xmlを取得します</string>
-    <!--    End editTextTextMultiLine-->
 
     <!--    Menú items-->
     <string name="item_policy">個人情報保護方針</string>
     <string name="item_rate">アプリを評価する</string>
     <string name="item_about">約</string>
-    <!--    End Menú items-->
 
     <!--    Author-->
-    <!--    End Author-->
 
 </resources>

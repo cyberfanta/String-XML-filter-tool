@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Strings XML फ़िल्टर उपकरण</string>
+
+    <string name="notImplemented">अभी भी कार्य नहीं किया गया है</string>
+
+    <!--    Permissions-->
+    <string name="permissionGranted">अनुमतियाँ दी गईं</string>
+    <string name="permissionNotGranted">अनुमतियाँ दी गई नहीं</string>
+    <string name="noIntentFound">कोई उपयुक्त फ़ाइल प्रबंधक नहीं मिला</string>
+    <string name="fileOpen">Strings.xml का फ़ाइल स्थान चुनें</string>
+    <string name="fileSave">अपने नए तार को बचाने के लिए फ़ोल्डर का चयन करें। xml</string>
+
+    <!--    AdsView-->
+
+    <!--    clipboard-->
+    <string name="noPlainText">आपके क्लिपबोर्ड पर कोई सादा पाठ नहीं है</string>
+    <string name="textCopied">आपके क्लिपबोर्ड में पाठ कॉपी किया गया</string>
+    <string name="processDone">प्रक्रिया की गई</string>
+    <string name="stringxmlFormatWrong">strings.xml प्रारूप गलत है</string>
+    <string name="stringxmlTranslatedFormatWrong">अनुवादित स्ट्रिंग्स। xml प्रारूप गलत है</string>
+    <string name="stringxmlFormatEmpty">strings.xml प्रारूप खाली है कृपया इसे भरें</string>
+
+    <!--    button-->
+    <string name="buttonBack_text">वापस</string>
+    <string name="buttonNext_text">आगे</string>
+    <string name="buttonRestart_text">पुनर्प्रारंभ करें</string>
+    <string name="buttonOpenFile_text">खुली फाइल</string>
+    <string name="buttonSaveFile_text">फाइल सुरक्षित करें</string>
+    <string name="button1_text">पेस्ट करें</string>
+    <string name="button2_text">प्रतिलिपि</string>
+    <string name="button3_text">पेस्ट करें</string>
+    <string name="button4_text">प्रतिलिपि</string>
+    <string name="buttonAutoTranslate_text">Google के साथ ऑटो अनुवाद</string>
+
+    <!--    editTextTextMultiLine-->
+    <string name="editTextTextMultiLine1_hint">कच्चे तार डालें। xml</string>
+    <string name="editTextTextMultiLine2_hint">अपने फ़िल्टर किए गए तार लें। Xml</string>
+    <string name="editTextTextMultiLine3_hint">अपने अनुवादित तार चिपकाएँ। Xml</string>
+    <string name="editTextTextMultiLine4_hint">प्रदान किए गए अनुवाद के साथ अपने स्ट्रिंग्स.xml को संरचित करें</string>
+
+    <!--    Menú items-->
+    <string name="item_policy">गोपनीयता नीति</string>
+    <string name="item_rate">हमारे ऐप को रेट करें</string>
+    <string name="item_about">के बारे में</string>
+
+    <!--    Author-->
+
+</resources>

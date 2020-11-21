@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">String XML Инструмент фильтра</string>
-
+    <string name="app_name">Инструмент фильтрации Strings XML</string>
 
     <string name="notImplemented">Функция все еще не реализована</string>
 
@@ -9,11 +9,9 @@
     <string name="permissionNotGranted">Разрешения не предоставлены</string>
     <string name="noIntentFound">Подходящего файлового менеджера не найдено</string>
     <string name="fileOpen">Выберите расположение файла strings.xml</string>
-    <string name="fileSave">Выберите папку для сохранения нового strings.xml</string>
-    <!--    End Permissions-->
+    <string name="fileSave">Выберите папку для сохранения вашего нового strings.xml</string>
 
     <!--    AdsView-->
-    <!--    End Adsview-->
 
     <!--    clipboard-->
     <string name="noPlainText">В буфере обмена нет простого текста</string>
@@ -22,7 +20,6 @@
     <string name="stringxmlFormatWrong">неверный формат strings.xml</string>
     <string name="stringxmlTranslatedFormatWrong">переведен неверный формат strings.xml</string>
     <string name="stringxmlFormatEmpty">Формат strings.xml пуст, заполните его</string>
-    <!--    End clipboard-->
 
     <!--    button-->
     <string name="buttonBack_text">Назад</string>
@@ -35,22 +32,18 @@
     <string name="button3_text">Вставить</string>
     <string name="button4_text">Копировать</string>
     <string name="buttonAutoTranslate_text">Автоматический перевод с Google</string>
-    <!--    End button-->
 
     <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Вставить необработанные strings.xml</string>
     <string name="editTextTextMultiLine2_hint">Возьмите отфильтрованный strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Вставьте переведенный файл strings.xml</string>
     <string name="editTextTextMultiLine4_hint">Возьмите свой strings.xml, структурированный с предоставленным переводом</string>
-    <!--    End editTextTextMultiLine-->
 
     <!--    Menú items-->
     <string name="item_policy">политика конфиденциальности</string>
     <string name="item_rate">Оцените наше приложение</string>
     <string name="item_about">Около</string>
-    <!--    End Menú items-->
 
     <!--    Author-->
-    <!--    End Author-->
 
 </resources>

@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">String XML 필터 도구</string>
-
+    <string name="app_name">Strings XML 필터 도구</string>
 
     <string name="notImplemented">아직 구현되지 않은 기능</string>
 
@@ -10,10 +10,8 @@
     <string name="noIntentFound">적합한 파일 관리자를 찾을 수 없습니다.</string>
     <string name="fileOpen">strings.xml의 파일 위치 선택</string>
     <string name="fileSave">새 strings.xml을 저장할 폴더를 선택하십시오.</string>
-    <!--    End Permissions-->
 
     <!--    AdsView-->
-    <!--    End Adsview-->
 
     <!--    clipboard-->
     <string name="noPlainText">클립 보드에 일반 텍스트가 없습니다.</string>
@@ -22,7 +20,6 @@
     <string name="stringxmlFormatWrong">strings.xml 형식이 잘못되었습니다.</string>
     <string name="stringxmlTranslatedFormatWrong">번역 된 strings.xml 형식이 잘못되었습니다.</string>
     <string name="stringxmlFormatEmpty">strings.xml 형식이 비어 있습니다.</string>
-    <!--    End clipboard-->
 
     <!--    button-->
     <string name="buttonBack_text">뒤</string>
@@ -35,22 +32,18 @@
     <string name="button3_text">풀</string>
     <string name="button4_text">부</string>
     <string name="buttonAutoTranslate_text">Google로 자동 번역</string>
-    <!--    End button-->
 
     <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">원시 strings.xml 삽입</string>
     <string name="editTextTextMultiLine2_hint">필터링 된 strings.xml 가져 오기</string>
     <string name="editTextTextMultiLine3_hint">번역 된 strings.xml 붙여 넣기</string>
     <string name="editTextTextMultiLine4_hint">제공된 번역으로 구성된 strings.xml을 가져옵니다.</string>
-    <!--    End editTextTextMultiLine-->
 
     <!--    Menú items-->
     <string name="item_policy">개인 정보 정책</string>
     <string name="item_rate">앱 평가</string>
     <string name="item_about">약</string>
-    <!--    End Menú items-->
 
     <!--    Author-->
-    <!--    End Author-->
 
 </resources>
