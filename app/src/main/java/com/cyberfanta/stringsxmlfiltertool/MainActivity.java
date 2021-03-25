@@ -1,10 +1,5 @@
 package com.cyberfanta.stringsxmlfiltertool;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -15,7 +10,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -27,6 +21,11 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -47,6 +46,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.Vector;
 
@@ -56,7 +56,10 @@ import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
 public class MainActivity extends AppCompatActivity {
 
-    Vector <String> names = new Vector<>(0);
+//    Vector <String> names = new Vector<>(0);
+    HashMap <Integer, String> names = new HashMap<>(0);
+    HashMap <Integer, String> labels = new HashMap<>(0);
+    HashMap <Integer, String> extras = new HashMap<>(0);
     Vector <String> rows = new Vector<>(0);
     String contents;
 
@@ -281,8 +284,28 @@ public class MainActivity extends AppCompatActivity {
             rows.clear();
             names.clear();
 
+            boolean commentary = false;
             for (String line : lines ) {
-                if (line.contains("<!--") || line.contains("resources") || line.contains("encoding") || !line.contains("<")) {
+                if (line.contains("<!--") && !line.contains("-->")) {
+                    rows.add(line);
+                    commentary=true;
+                    continue;
+                }
+
+                if (commentary) {
+                    rows.add(line);
+                    if (line.contains("-->"))
+                        commentary=false;
+                    continue;
+                }
+
+                if ((line.contains("<!--") && line.contains("-->")) || line.contains("resources") || line.contains("encoding") || !line.contains("<")) {
+                    rows.add(line);
+                    continue;
+                }
+
+                if (line.contains("plurals")) {
+                    labels.put(rows.size(), "plurals");
                     rows.add(line);
                     continue;
                 }
@@ -290,11 +313,40 @@ public class MainActivity extends AppCompatActivity {
                 if (line.contains("translatable=\"false\""))
                     continue;
 
-                String[] name = line.split("\"");
+                if (line.contains("formatted=\"true\"")) {
+                    extras.put(rows.size(), " formatted=\"true\"");
+                    String[] split = line.split(" formatted=\"true\"");
+                    line = split[0].concat(split[1]);
+                }
+
+                String[] name;
+                String[] split = null;
+                if (line.contains("\\\"")) {
+                    split = line.split("\\\\\"");
+                    name = split[0].split("\"");
+                } else {
+                    name = line.split("\"");
+                }
+
                 if (name.length < 2)
                     continue;
 
-                names.add(name[1]);
+                if (line.contains("item")) {
+                    labels.put(rows.size(), "item");
+                }
+
+                if (split != null)
+                    for (int i = 1; i < split.length; i++)
+                        name[2] = name[2].concat("\\\"").concat(split[i]);
+
+//                if (name[2].contains("\\'")) {
+//                    String[] split2 = name[2].split("\\\\'");
+////                    name = split2[0].split("\"");
+//                }
+
+                names.put(rows.size(), name[1]);
+
+//                names.add(name[1]);
                 rows.add("filled");
 
                 String[] content = name[2].split("<");
@@ -302,6 +354,7 @@ public class MainActivity extends AppCompatActivity {
                     continue;
 
                 contents = contents.concat(content[0].substring(1)).concat("\n");
+                int in=content.length;
             }
         }
 
@@ -324,16 +377,27 @@ public class MainActivity extends AppCompatActivity {
         } else {
             contents = "";
             int j = 0;
-            for (int i = 0; i < rows.size(); i++) {
-                if (rows.elementAt(i).equals("filled")) {
-                    if (lines[j].contains("'"))
+            String label, extra;
+//            if (rows.elementAt(i).equals("filled")) {
+            for (int i = 0; i < rows.size(); i++)
+                if (names.containsKey(i)) {
+                    if (lines[j].contains("'") && !lines[j].contains("\\'"))
                         lines[j] = lines[j].replaceAll("'", "\\\\'");
-                    contents = contents.concat("    <string name=\"").concat(names.get(j)).concat("\">").concat(lines[j]).concat("</string>\n");
+                    if (labels.containsKey(i))
+                        label = labels.get(i);
+                    else
+                        label = "string";
+
+                    extra = "";
+                    if (extras.containsKey(i))
+                        extra = extras.get(i);
+
+//                    contents = contents.concat("    <").concat(label).concat(" name=\"").concat(names.get(j)).concat("\">").concat(lines[j]).concat("</").concat(label).concat(">\n");
+                    contents = contents.concat("    <").concat(label).concat(" name=\"").concat(names.get(i)).concat("\"").concat(extra).concat(">").concat(lines[j]).concat("</").concat(label).concat(">\n");
                     j++;
                 } else {
                     contents = contents.concat(rows.elementAt(i).concat("\n"));
                 }
-            }
         }
 
         Toast.makeText(getApplicationContext(), R.string.processDone, Toast.LENGTH_SHORT).show();
