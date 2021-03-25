@@ -339,14 +339,8 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 1; i < split.length; i++)
                         name[2] = name[2].concat("\\\"").concat(split[i]);
 
-//                if (name[2].contains("\\'")) {
-//                    String[] split2 = name[2].split("\\\\'");
-////                    name = split2[0].split("\"");
-//                }
-
                 names.put(rows.size(), name[1]);
 
-//                names.add(name[1]);
                 rows.add("filled");
 
                 String[] content = name[2].split("<");
@@ -377,23 +371,33 @@ public class MainActivity extends AppCompatActivity {
         } else {
             contents = "";
             int j = 0;
-            String label, extra;
+            String label, extra, name, indentation;
 //            if (rows.elementAt(i).equals("filled")) {
             for (int i = 0; i < rows.size(); i++)
                 if (names.containsKey(i)) {
-                    if (lines[j].contains("'") && !lines[j].contains("\\'"))
+                    if (lines[j].contains("'")) {
+                        if (lines[j].contains("\\'"))
+                            lines[j] = lines[j].replaceAll("\\\\'", "'");
                         lines[j] = lines[j].replaceAll("'", "\\\\'");
+                    }
                     if (labels.containsKey(i))
                         label = labels.get(i);
                     else
                         label = "string";
+
+                    indentation = "";
+                    name = "name";
+                    if (label.equals("item")) {
+                        indentation = "    ";
+                        name = "quantity";
+                    }
 
                     extra = "";
                     if (extras.containsKey(i))
                         extra = extras.get(i);
 
 //                    contents = contents.concat("    <").concat(label).concat(" name=\"").concat(names.get(j)).concat("\">").concat(lines[j]).concat("</").concat(label).concat(">\n");
-                    contents = contents.concat("    <").concat(label).concat(" name=\"").concat(names.get(i)).concat("\"").concat(extra).concat(">").concat(lines[j]).concat("</").concat(label).concat(">\n");
+                    contents = contents.concat(indentation).concat("    <").concat(label).concat(" ").concat(name).concat("=\"").concat(names.get(i)).concat("\"").concat(extra).concat(">").concat(lines[j]).concat("</").concat(label).concat(">\n");
                     j++;
                 } else {
                     contents = contents.concat(rows.elementAt(i).concat("\n"));
