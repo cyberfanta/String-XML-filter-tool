@@ -54,4 +54,10 @@
     <string name="author_email" translatable="false">masterjulioleon2004@gmail.com</string>
     <string name="author_phone" translatable="false">+58 (424) 225.92.20</string>
 
+    <!--    Version 2 UI-->
+    <string name="tvA1">Open</string>
+    <string name="tvA2">Paste</string>
+    <string name="tvA3">Next</string>
+
+
 </resources>

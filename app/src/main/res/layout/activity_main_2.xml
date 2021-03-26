@@ -12,8 +12,9 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
+        android:layout_marginBottom="204dp"
         android:background="@color/colorSourceBase"
-        app:layout_constraintBottom_toTopOf="@id/tools"
+        app:layout_constraintBottom_toTopOf="@id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,9 +26,9 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="224dp"
         android:background="@drawable/edittexttextmultiline_background"
-        app:layout_constraintBottom_toTopOf="@id/tools"
+        app:layout_constraintBottom_toTopOf="@id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +40,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="22dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="234dp"
         android:autofillHints=""
         android:ems="10"
         android:gravity="center"
@@ -48,33 +49,107 @@
         android:padding="@dimen/editTextTextMultiLine_padding"
         android:textColorHint="@color/colorSource4Up"
         android:textSize="@dimen/editTextTextMultiLine_textSize"
-        app:layout_constraintBottom_toTopOf="@id/tools"
+        app:layout_constraintBottom_toTopOf="@id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/tools"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tool1"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="114dp"
         android:background="@color/colorSourceBase"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/components"
+        app:layout_constraintBottom_toTopOf="@id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <View
-            android:id="@+id/view3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/ivA1"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/edittexttextmultiline_background" />
+
+        <TextView
+            android:id="@+id/tvA1"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:gravity="center"
+            android:text="@string/tvA1"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:typeface="sans"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivA1" />
+
+        <ImageView
+            android:id="@+id/ivB1"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toStartOf="@+id/ivC1"
+            app:layout_constraintStart_toEndOf="@+id/ivA1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/edittexttextmultiline_background" />
+
+        <TextView
+            android:id="@+id/tvB1"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/tvA2"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:typeface="sans"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvC1"
+            app:layout_constraintStart_toEndOf="@+id/tvA1"
+            app:layout_constraintTop_toBottomOf="@+id/ivB1" />
+
+        <ImageView
+            android:id="@+id/ivC1"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/edittexttextmultiline_background" />
+
+        <TextView
+            android:id="@+id/tvC1"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="@string/tvA3"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:typeface="sans"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivC1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view13"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="104dp"
+        android:background="@color/colorSourceBase"
+        app:layout_constraintBottom_toTopOf="@id/adView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:id="@+id/components"
+        android:id="@+id/components1"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="2dp"
@@ -82,7 +157,7 @@
         android:layout_marginBottom="2dp"
         android:background="@color/colorSourceBase"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/adView2"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -90,7 +165,25 @@
             android:id="@+id/view4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="84" />
+
+        <View
+            android:id="@+id/view10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="84" />
+
+        <View
+            android:id="@+id/view11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="84" />
+
+        <View
+            android:id="@+id/view12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="84" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,7 +195,7 @@
         android:focusable="true"
         android:onClick="author_selected"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/adView2"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -200,11 +293,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView2"
+        android:id="@+id/adView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:background="@drawable/background"
         app:adSize="BANNER"
         app:adUnitId="@string/ads_footer"
 
