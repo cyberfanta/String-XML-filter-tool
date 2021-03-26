@@ -63,7 +63,6 @@
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="114dp"
         android:background="@color/colorSourceBase"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -76,7 +75,7 @@
             android:contentDescription="@string/defaultContentDescription"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/edittexttextmultiline_background" />
+            app:srcCompat="@drawable/ic_open" />
 
         <TextView
             android:id="@+id/tvA1"
@@ -100,7 +99,7 @@
             app:layout_constraintEnd_toStartOf="@+id/ivC1"
             app:layout_constraintStart_toEndOf="@+id/ivA1"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/edittexttextmultiline_background" />
+            app:srcCompat="@drawable/ic_paste" />
 
         <TextView
             android:id="@+id/tvB1"
@@ -124,7 +123,7 @@
             android:contentDescription="@string/defaultContentDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/edittexttextmultiline_background" />
+            app:srcCompat="@drawable/ic_next" />
 
         <TextView
             android:id="@+id/tvC1"
@@ -149,6 +148,7 @@
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="114dp"
         android:background="@color/colorSourceBase"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -173,7 +173,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:text="@string/tvA2"
+            android:text="@string/tvA5"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
             android:typeface="sans"
@@ -203,7 +203,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:text="@string/tvB2"
+            android:text="@string/tvB5"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
             android:typeface="sans"
@@ -233,7 +233,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:text="@string/tvC2"
+            android:text="@string/tvC5"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
             android:typeface="sans"
@@ -263,7 +263,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:text="@string/tvD2"
+            android:text="@string/tvD5"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
             android:typeface="sans"

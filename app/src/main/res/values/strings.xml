@@ -41,6 +41,7 @@
     <string name="editTextTextMultiLine2_hint">Take your filtered strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Paste your translated strings.xml</string>
     <string name="editTextTextMultiLine4_hint">Take your strings.xml structured with the translation provided</string>
+    <string name="editTextTextMultiLine_google_hint">Select your language.\nFunctionality still not activated.\nWill be available at version 2.</string>
 
     <!--    Menú items-->
     <string name="item_policy">Privacy Policy</string>
@@ -55,15 +56,29 @@
     <string name="author_phone" translatable="false">+58 (424) 225.92.20</string>
 
     <!--    Version 2 UI-->
+    <!--    Tools-->
     <string name="tvA1">Open</string>
     <string name="tvB1">Paste</string>
     <string name="tvC1">Next</string>
 
     <string name="tvA2">Back</string>
     <string name="tvB2">Copy</string>
-    <string name="tvC2">Save</string>
-    <string name="tvD2">Restart</string>
+    <string name="tvC2">Next</string>
 
+    <string name="tvA3">Back</string>
+    <string name="tvB3">Translate</string>
+    <string name="tvC3">Next</string>
+
+    <string name="tvA4">Back</string>
+    <string name="tvB4">Paste</string>
+    <string name="tvC4">Next</string>
+
+    <string name="tvA5">Back</string>
+    <string name="tvB5">Copy</string>
+    <string name="tvC5">Save</string>
+    <string name="tvD5">Restart</string>
+
+    <!--    Components-->
     <string name="tvM1">Raw Strings.xml</string>
     <string name="tvM2">Filtered Strings.xml</string>
     <string name="tvM3">Translate Strings.xml</string>
