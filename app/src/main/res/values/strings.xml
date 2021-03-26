@@ -65,4 +65,9 @@
     <string name="tvM4">Translated Strings.xml</string>
     <string name="tvM5">New Raw Strings.xml</string>
 
+    <!--    Contributors-->
+    <string name="contributors_special">Special Thanks for you feedback:</string>
+    <string name="contributors_contributors">Telmo Almeida</string>
+
+
 </resources>

@@ -153,7 +153,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/components1"
+        android:id="@+id/components"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="2dp"
@@ -464,91 +464,133 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/author_margin"
-            android:background="@drawable/edittexttextmultiline_background"
-            android:orientation="horizontal"
-            android:padding="@dimen/author_padding"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/author_image_size"
-                android:layout_height="@dimen/author_image_size"
-                android:layout_marginEnd="@dimen/author_image_margin"
-                android:layout_weight="1"
-                android:contentDescription="@string/defaultContentDescription"
-                app:srcCompat="@drawable/cara_marca_personal_2" />
+            <LinearLayout
+                android:id="@+id/au"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/author_margin"
+                android:background="@drawable/edittexttextmultiline_background"
+                android:orientation="horizontal"
+                android:padding="@dimen/author_padding">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/author_image_size"
+                    android:layout_height="@dimen/author_image_size"
+                    android:layout_marginEnd="@dimen/author_image_margin"
+                    android:contentDescription="@string/defaultContentDescription"
+                    app:srcCompat="@drawable/cara_marca_personal_2" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/author_image_size"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/name1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/author_text_heigth_1"
+                        android:gravity="center"
+                        android:shadowColor="@color/colorBlack"
+                        android:shadowRadius="@dimen/author_text_shadow_radius"
+                        android:text="@string/author_name_1"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/name2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/author_text_heigth_1"
+                        android:gravity="center"
+                        android:shadowColor="@color/colorBlack"
+                        android:shadowRadius="@dimen/author_text_shadow_radius"
+                        android:text="@string/author_name_2"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/profession"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/author_text_heigth_2"
+                        android:gravity="center"
+                        android:shadowColor="@color/colorBlack"
+                        android:shadowRadius="@dimen/author_text_shadow_radius"
+                        android:text="@string/author_profession"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/author_text_heigth_2"
+                        android:gravity="center"
+                        android:shadowColor="@color/colorBlack"
+                        android:shadowRadius="@dimen/author_text_shadow_radius"
+                        android:text="@string/author_email"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/author_text_heigth_2"
+                        android:gravity="center"
+                        android:shadowColor="@color/colorBlack"
+                        android:shadowRadius="@dimen/author_text_shadow_radius"
+                        android:text="@string/author_phone"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/author_image_size"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/edittexttextmultiline_background"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/name1"
+                    android:id="@+id/textView10"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/author_text_heigth_1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
                     android:shadowColor="@color/colorBlack"
                     android:shadowRadius="@dimen/author_text_shadow_radius"
-                    android:text="@string/author_name_1"
+                    android:text="@string/contributors_special"
                     android:textColor="@color/colorWhite"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/name2"
+                    android:id="@+id/textView11"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/author_text_heigth_1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:shadowColor="@color/colorBlack"
                     android:shadowRadius="@dimen/author_text_shadow_radius"
-                    android:text="@string/author_name_2"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/profession"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/author_text_heigth_2"
-                    android:gravity="center"
-                    android:shadowColor="@color/colorBlack"
-                    android:shadowRadius="@dimen/author_text_shadow_radius"
-                    android:text="@string/author_profession"
+                    android:text="@string/contributors_contributors"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/author_text_heigth_2"
-                    android:gravity="center"
-                    android:shadowColor="@color/colorBlack"
-                    android:shadowRadius="@dimen/author_text_shadow_radius"
-                    android:text="@string/author_email"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/author_text_heigth_2"
-                    android:gravity="center"
-                    android:shadowColor="@color/colorBlack"
-                    android:shadowRadius="@dimen/author_text_shadow_radius"
-                    android:text="@string/author_phone"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
             </LinearLayout>
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
