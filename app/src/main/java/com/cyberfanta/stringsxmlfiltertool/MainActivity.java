@@ -73,13 +73,15 @@ public class MainActivity extends AppCompatActivity {
     ReviewManager reviewManager;
     ReviewInfo reviewInfo;
 
+    // Device Metrics
+    int deviceWidth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_2);
 
         // Device Metrics
-        int deviceWidth;
 //        int deviceHeight;
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
