@@ -59,5 +59,10 @@
     <string name="tvA2">Paste</string>
     <string name="tvA3">Next</string>
 
+    <string name="tvM1">Raw Strings.xml</string>
+    <string name="tvM2">Filtered Strings.xml</string>
+    <string name="tvM3">Translate Strings.xml</string>
+    <string name="tvM4">Translated Strings.xml</string>
+    <string name="tvM5">New Raw Strings.xml</string>
 
 </resources>
