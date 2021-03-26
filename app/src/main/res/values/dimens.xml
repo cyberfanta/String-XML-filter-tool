@@ -42,6 +42,7 @@
     <dimen name="background_stroke">2dp</dimen>
     <dimen name="edittexttextmultiline_background_stroke">2dp</dimen>
     <dimen name="button_background_stroke">3dp</dimen>
+    <dimen name="button_background_stroke_thin">1dp</dimen>
     <dimen name="button_background_centerY">15%</dimen>
 
     <!--    horizontalScrollView-->

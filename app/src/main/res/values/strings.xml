@@ -56,8 +56,13 @@
 
     <!--    Version 2 UI-->
     <string name="tvA1">Open</string>
-    <string name="tvA2">Paste</string>
-    <string name="tvA3">Next</string>
+    <string name="tvB1">Paste</string>
+    <string name="tvC1">Next</string>
+
+    <string name="tvA2">Back</string>
+    <string name="tvB2">Copy</string>
+    <string name="tvC2">Save</string>
+    <string name="tvD2">Restart</string>
 
     <string name="tvM1">Raw Strings.xml</string>
     <string name="tvM2">Filtered Strings.xml</string>
