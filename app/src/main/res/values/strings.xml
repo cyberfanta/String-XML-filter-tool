@@ -63,18 +63,9 @@
 
     <string name="tvA2">Back</string>
     <string name="tvB2">Copy</string>
-    <string name="tvC2">Next</string>
 
-    <string name="tvA3">Back</string>
     <string name="tvB3">Translate</string>
-    <string name="tvC3">Next</string>
 
-    <string name="tvA4">Back</string>
-    <string name="tvB4">Paste</string>
-    <string name="tvC4">Next</string>
-
-    <string name="tvA5">Back</string>
-    <string name="tvB5">Copy</string>
     <string name="tvC5">Save</string>
     <string name="tvD5">Restart</string>
 

@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,7 +58,6 @@ import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
 public class MainActivity extends AppCompatActivity {
 
-//    Vector <String> names = new Vector<>(0);
     HashMap <Integer, String> names = new HashMap<>(0);
     HashMap <Integer, String> labels = new HashMap<>(0);
     HashMap <Integer, String> extras = new HashMap<>(0);
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
     // Device Metrics
     int deviceWidth;
+
+    // Logic for UI Version 2
+    int currentComponent = 1;
+    String[] textTextBox = new String[]{"", "", "", "", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -350,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
                     continue;
 
                 contents = contents.concat(content[0].substring(1)).concat("\n");
-                int in=content.length;
+//                int in=content.length;
             }
         }
 
@@ -490,8 +495,8 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == FOLDERPICKER_CODE_SAVE && resultCode == Activity.RESULT_OK) {
             fileLocation = Objects.requireNonNull(intent.getExtras()).getString("data");
 
-            EditText editText = findViewById(R.id.editTextTextMultiLine4);
-            String string = editText.getText().toString();
+            TextView textView = findViewById(R.id.textBox);
+            String string = textView.getText().toString();
             if (!string.isEmpty()) {
                 File file = new File(fileLocation, "strings.xml");
                 try {
@@ -524,8 +529,8 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException ignored) {
                 }
 
-                EditText editText = findViewById(R.id.editTextTextMultiLine1);
-                editText.setText(lines);
+                TextView textView = findViewById(R.id.textBox);
+                textView.setText(lines);
             }
             Toast.makeText(getApplicationContext(), R.string.processDone, Toast.LENGTH_SHORT).show();
         }
@@ -594,7 +599,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    ---
+    //    ---
 
     /**
      * Manage the loading of Interstitial Ads
@@ -622,4 +627,399 @@ public class MainActivity extends AppCompatActivity {
         constraintLayout.setVisibility(View.GONE);
     }
 
+    //    New functions for UI version 2
+    //    Tools 1
+    /**
+     * Process the actions from tool A1
+     */
+    public void toolA1 (View view) {
+        if (currentComponent == 1){
+            openXml(view);
+        } else if (currentComponent == 2){
+            currentComponent = 1;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine1_hint));
+            // Updating Text for textBox
+            textView.setText(textTextBox[0]);
+
+            // Updating Image for ivA1
+            ImageView imageView = findViewById(R.id.ivA1);
+            imageView.setImageResource(R.drawable.ic_open);
+            // Updating Text for ivA1
+            textView = findViewById(R.id.tvA1);
+            textView.setText(getString(R.string.tvA1));
+
+            // Updating Image for ivB1
+            imageView = findViewById(R.id.ivB1);
+            imageView.setImageResource(R.drawable.ic_paste);
+            // Updating Text for ivB1
+            textView = findViewById(R.id.tvB1);
+            textView.setText(getString(R.string.tvB2));
+
+            // Updating Image for components
+            imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.VISIBLE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.GONE);
+        } else if (currentComponent == 3){
+            currentComponent = 2;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine2_hint));
+            // Updating Text for textBox
+            textView.setText(textTextBox[1]);
+            textView.setEnabled(true);
+
+            // Updating Image for ivB1
+            ImageView imageView = findViewById(R.id.ivB1);
+            imageView.setImageResource(R.drawable.ic_copy);
+            // Updating Text for ivB1
+            textView = findViewById(R.id.tvB1);
+            textView.setText(getString(R.string.tvB2));
+
+            // Updating Image for components
+            imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.VISIBLE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.GONE);
+        } else if (currentComponent == 4){
+            currentComponent = 3;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine_google_hint));
+            // Updating Text for textBox
+            textView.setText(textTextBox[2]);
+            textView.setEnabled(false);
+
+            // Updating Image for ivB1
+            ImageView imageView = findViewById(R.id.ivB1);
+            imageView.setImageResource(R.drawable.ic_translate_tool);
+            // Updating Text for ivB1
+            textView = findViewById(R.id.tvB1);
+            textView.setText(getString(R.string.tvB2));
+
+            // Updating Image for components
+            imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.VISIBLE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.GONE);
+        } else {
+            currentComponent = 4;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine3_hint));
+            // Updating Text for textBox
+            textView.setText(textTextBox[3]);
+
+            // Updating Image for ivA1
+            ImageView imageView = findViewById(R.id.ivA1);
+            imageView.setImageResource(R.drawable.ic_back);
+            // Updating Text for ivA1
+            textView = findViewById(R.id.tvA1);
+            textView.setText(getString(R.string.tvA2));
+
+            // Updating Image for ivB1
+            imageView = findViewById(R.id.ivB1);
+            imageView.setImageResource(R.drawable.ic_paste);
+            // Updating Text for ivB1
+            textView = findViewById(R.id.tvB1);
+            textView.setText(getString(R.string.tvB2));
+
+            // Activating tools1
+            ConstraintLayout constraintLayout = findViewById(R.id.tool2);
+            constraintLayout.setVisibility(View.GONE);
+            constraintLayout = findViewById(R.id.tool1);
+            constraintLayout.setVisibility(View.VISIBLE);
+
+            // Updating Image for components
+            imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.VISIBLE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * Process the actions from tool B1
+     */
+    public void toolB1 (View view) {
+        EditText editText = findViewById(R.id.textBox);
+        if (currentComponent == 1){
+            pastePlainText (editText);
+        } else if (currentComponent == 2){
+            copyPlainText(editText.getText().toString());
+        } else if (currentComponent == 3){
+            //todo: must be changed when activate the auto-translate
+            autoTranslate(editText.getText().toString());
+            toolC1(editText);
+        } else if (currentComponent == 4){
+            pastePlainText (editText);
+        } else {
+            copyPlainText(editText.getText().toString());
+        }
+    }
+
+    /**
+     * Process the actions from tool C1
+     */
+    public void toolC1 (View view) {
+        if (currentComponent == 1){
+            currentComponent = 2;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine2_hint));
+
+            // Updating Image for ivA1
+            ImageView imageView = findViewById(R.id.ivA1);
+            imageView.setImageResource(R.drawable.ic_back);
+            // Updating Text for ivA1
+            textView = findViewById(R.id.tvA1);
+            textView.setText(getString(R.string.tvA2));
+
+            // Updating Image for ivB1
+            imageView = findViewById(R.id.ivB1);
+            imageView.setImageResource(R.drawable.ic_copy);
+            // Updating Text for ivB1
+            textView = findViewById(R.id.tvB1);
+            textView.setText(getString(R.string.tvB2));
+
+            // Updating Image for components
+            imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.VISIBLE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.GONE);
+
+            // Executing command
+            textView = findViewById(R.id.textBox);
+            String string = textView.getText().toString();
+            if (!string.isEmpty()) {
+                filterXml(string);
+                textTextBox[1] = contents;
+
+                // Updating Text for textBox
+                textView.setText(textTextBox[1]);
+            }
+
+        } else if (currentComponent == 2){
+            currentComponent = 3;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine_google_hint));
+            // Updating Text for textBox
+            textView.setText(textTextBox[2]);
+            textView.setEnabled(false);
+
+            // Updating Image for ivB1
+            ImageView imageView = findViewById(R.id.ivB1);
+            imageView.setImageResource(R.drawable.ic_translate_tool);
+            // Updating Text for ivB1
+            textView = findViewById(R.id.tvB1);
+            textView.setText(getString(R.string.tvB3));
+
+            // Updating Image for components
+            imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.VISIBLE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.GONE);
+
+            // Executing Command
+            // todo: when auto-translate is ready
+        } else if (currentComponent == 3){
+            currentComponent = 4;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine3_hint));
+            // Updating Text for textBox
+            textView.setText(textTextBox[3]);
+            textView.setEnabled(true);
+
+            // Updating Image for ivB1
+            ImageView imageView = findViewById(R.id.ivB1);
+            imageView.setImageResource(R.drawable.ic_paste);
+            // Updating Text for ivB1
+            textView = findViewById(R.id.tvB1);
+            textView.setText(getString(R.string.tvB1));
+
+            // Updating Image for components
+            imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.VISIBLE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.GONE);
+
+            // Executing Command
+            textView = findViewById(R.id.textBox);
+            String string = textView.getText().toString();
+            if (!string.isEmpty()) {
+                if (autoTranslate(string)) {
+                    textTextBox[3] = contents;
+
+                    // Updating Text for textBox
+                    textView.setText(textTextBox[3]);
+                }
+            }
+        } else if (currentComponent == 4){
+            currentComponent = 5;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine4_hint));
+            // Updating Text for textBox
+            textView.setText(textTextBox[2]);
+            textView.setEnabled(false);
+
+            // Activating tools2
+            ConstraintLayout constraintLayout = findViewById(R.id.tool1);
+            constraintLayout.setVisibility(View.GONE);
+            constraintLayout = findViewById(R.id.tool2);
+            constraintLayout.setVisibility(View.VISIBLE);
+
+            // Updating Image for components
+            ImageView imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.VISIBLE);
+
+            // Executing Command
+            textView = findViewById(R.id.textBox);
+            String string = textView.getText().toString();
+            if (!string.isEmpty()) {
+                returnXml(string);
+                textTextBox[4] = contents;
+
+                // Updating Text for textBox
+                textView.setText(textTextBox[4]);
+            }
+        } else {
+            currentComponent = 1;
+            // Updating Hint for textBox
+            TextView textView = findViewById(R.id.textBox);
+            textView.setHint(getString(R.string.editTextTextMultiLine1_hint));
+            // Updating Text for textBox
+            textView.setText(textTextBox[0]);
+
+            // Updating Image for ivA1
+            ImageView imageView = findViewById(R.id.ivA1);
+            imageView.setImageResource(R.drawable.ic_open);
+            // Updating Text for ivA1
+            textView = findViewById(R.id.tvA1);
+            textView.setText(getString(R.string.tvA1));
+
+            // Updating Image for ivB1
+            imageView = findViewById(R.id.ivB1);
+            imageView.setImageResource(R.drawable.ic_paste);
+            // Updating Text for ivB1
+            textView = findViewById(R.id.tvB1);
+            textView.setText(getString(R.string.tvB1));
+
+            // Activating tools1
+            ConstraintLayout constraintLayout = findViewById(R.id.tool2);
+            constraintLayout.setVisibility(View.GONE);
+            constraintLayout = findViewById(R.id.tool1);
+            constraintLayout.setVisibility(View.VISIBLE);
+
+            // Updating Image for components
+            imageView = findViewById(R.id.iv2M1);
+            imageView.setVisibility(View.VISIBLE);
+            imageView = findViewById(R.id.iv2M2);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M3);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M4);
+            imageView.setVisibility(View.GONE);
+            imageView = findViewById(R.id.iv2M5);
+            imageView.setVisibility(View.GONE);
+        }
+    }
+
+    //    Tools 2
+    /**
+     * Process the actions from tool C2
+     */
+    public void toolB2(View view) {
+        saveXml(view);
+    }
+
+    //    Components
+    /**
+     * Process the actions from Components M1
+     */
+    public void componentsM1 (View view) {
+        //
+    }
+
+    /**
+     * Process the actions from Components M2
+     */
+    public void componentsM2 (View view) {
+        //
+    }
+
+    /**
+     * Process the actions from Components M3
+     */
+    public void componentsM3 (View view) {
+        //
+    }
+
+    /**
+     * Process the actions from Components M4
+     */
+    public void componentsM4 (View view) {
+        //
+    }
+
+    /**
+     * Process the actions from Components M5
+     */
+    public void componentsM5 (View view) {
+        //
+    }
 }
