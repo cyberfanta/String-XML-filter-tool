@@ -24,19 +24,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.tasks.OnCompleteListener;
@@ -64,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     Vector <String> rows = new Vector<>(0);
     String contents;
 
-    InterstitialAd interstitialAd;
+    private InterstitialAd interstitialAd;
     int adCounter = 0;
 
     final int FOLDERPICKER_CODE_SAVE = 1;
@@ -87,20 +91,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_2);
 
         // Device Metrics
-//        int deviceHeight;
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         deviceWidth = displayMetrics.widthPixels;
-//        deviceHeight = displayMetrics.heightPixels;
 
         // Keep keyboard hidden
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-        // Loading Ads
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {}
-        });
 
         // Banner
         AdView adView = new AdView(this);
@@ -109,21 +105,57 @@ public class MainActivity extends AppCompatActivity {
         AdView adView1 = findViewById(R.id.adView);
         adView1.addView(adView);
         adView.loadAd(new AdRequest.Builder().build());
+    }
 
-        // Instersicial
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId(getString(R.string.ads_intersticial));
-        interstitialAd.loadAd(new AdRequest.Builder().build());
-        interstitialAd.setAdListener(new AdListener() {
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // Loading Ads
+        //noinspection NullableProblems
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onAdClosed() {
-                // Load the next interstitial.
-                interstitialAd.loadAd(new AdRequest.Builder().build());
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                AdRequest adRequest = new AdRequest.Builder().build();
+
+                // Interstitial
+                InterstitialAd.load(MainActivity.this, getString(R.string.ads_interstitial), adRequest,
+                        new InterstitialAdLoadCallback() {
+                            @Override
+                            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                                // The mInterstitialAd reference will be null until an ad is loaded.
+                                MainActivity.this.interstitialAd = interstitialAd;
+                                Toast.makeText(MainActivity.this, "onAdLoaded()", Toast.LENGTH_SHORT).show();
+                                //noinspection NullableProblems
+                                interstitialAd.setFullScreenContentCallback(
+                                        new FullScreenContentCallback() {
+                                            @Override
+                                            public void onAdDismissedFullScreenContent() {
+                                                // Called when fullscreen content is dismissed. Make sure to set your reference to null so you don't show it a second time.
+                                                MainActivity.this.interstitialAd = null;
+                                            }
+
+                                            @Override
+                                            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                                // Called when fullscreen content failed to show. Make sure to set your reference to null so you don't show it a second time.
+                                                MainActivity.this.interstitialAd = null;
+                                            }
+
+                                            @Override
+                                            public void onAdShowedFullScreenContent() {
+                                                // Called when fullscreen content is shown.
+                                                Log.d("TAG", "The ad was shown.");
+                                            }
+                                        }
+                                );
+                            }
+                        }
+                );
             }
         });
     }
 
-//    -----
+    //    -----
 
     /**
      * Paste clipboard text into editTextTextMultiLine1
@@ -394,7 +426,7 @@ public class MainActivity extends AppCompatActivity {
 
                     indentation = "";
                     name = "name";
-                    if (label.equals("item")) {
+                    if (label != null && label.equals("item")) {
                         indentation = "    ";
                         name = "quantity";
                     }
@@ -403,8 +435,9 @@ public class MainActivity extends AppCompatActivity {
                     if (extras.containsKey(i))
                         extra = extras.get(i);
 
-//                    contents = contents.concat("    <").concat(label).concat(" name=\"").concat(names.get(j)).concat("\">").concat(lines[j]).concat("</").concat(label).concat(">\n");
-                    contents = contents.concat(indentation).concat("    <").concat(label).concat(" ").concat(name).concat("=\"").concat(names.get(i)).concat("\"").concat(extra).concat(">").concat(lines[j]).concat("</").concat(label).concat(">\n");
+                    if (label != null && extra != null)
+                        contents = contents.concat(indentation).concat("    <").concat(label).concat(" ").concat(name).concat("=\"").concat(Objects.requireNonNull(names.get(i))).concat("\"").concat(extra).concat(">").concat(lines[j]).concat("</").concat(label).concat(">\n");
+
                     j++;
                 } else {
                     contents = contents.concat(rows.elementAt(i).concat("\n"));
@@ -584,6 +617,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.item_rate:
                 Task<Void> flow = reviewManager.launchReviewFlow(MainActivity.this, reviewInfo);
+                //noinspection NullableProblems
                 flow.addOnCompleteListener(
                         new OnCompleteListener<Void>() {
                             @Override
@@ -608,8 +642,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void loadInterstitialAdd () {
         if (adCounter > 1) {
-            if (interstitialAd.isLoaded()) {
-                interstitialAd.show();
+            if (interstitialAd != null) {
+                interstitialAd.show(this);
                 adCounter = 0;
                 return;
             }

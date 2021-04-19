@@ -14,7 +14,7 @@
 
     <!--    AdsView-->
     <string name="ads_footer" translatable="false">ca-app-pub-2321980263900338/1932074368</string>
-    <string name="ads_intersticial" translatable="false">ca-app-pub-2321980263900338/6925380744</string>
+    <string name="ads_interstitial" translatable="false">ca-app-pub-2321980263900338/6925380744</string>
 
     <!--    clipboard-->
     <string name="noPlainText">There is no a plain text on your clipboard</string>
@@ -41,7 +41,7 @@
     <string name="editTextTextMultiLine2_hint">Take your filtered strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Paste your translated strings.xml</string>
     <string name="editTextTextMultiLine4_hint">Take your strings.xml structured with the translation provided</string>
-    <string name="editTextTextMultiLine_google_hint">Select your language.\nFunctionality still not activated.\nWill be available at version 2.</string>
+    <string name="editTextTextMultiLine_google_hint">Select your language.\n\nFunctionality still not activated.\n\nWill be available at version 2.</string>
 
     <!--    Menú items-->
     <string name="item_policy">Privacy Policy</string>
