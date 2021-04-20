@@ -59,12 +59,13 @@ import lib.folderpicker.FolderPicker;
 
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
+@SuppressWarnings("RedundantSuppression")
 public class MainActivity extends AppCompatActivity {
 
-    HashMap <Integer, String> names = new HashMap<>(0);
-    HashMap <Integer, String> labels = new HashMap<>(0);
-    HashMap <Integer, String> extras = new HashMap<>(0);
-    Vector <String> rows = new Vector<>(0);
+    final HashMap <Integer, String> names = new HashMap<>(0);
+    final HashMap <Integer, String> labels = new HashMap<>(0);
+    final HashMap <Integer, String> extras = new HashMap<>(0);
+    final Vector <String> rows = new Vector<>(0);
     String contents;
 
     private InterstitialAd interstitialAd;
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Logic for UI Version 2
     int currentComponent = 1;
-    String[] textTextBox = new String[]{"", "", "", "", ""};
+    final String[] textTextBox = new String[]{"", "", "", "", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -386,7 +387,6 @@ public class MainActivity extends AppCompatActivity {
                     continue;
 
                 contents = contents.concat(content[0].substring(1)).concat("\n");
-//                int in=content.length;
             }
         }
 

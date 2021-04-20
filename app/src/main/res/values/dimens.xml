@@ -7,7 +7,7 @@
     <dimen name="linearLayoutHorizontal_padding">15dp</dimen>
 
     <!--    linearLayoutVetical-->
-    <dimen name="linearLayoutVetical_layout_width">352dp</dimen>
+    <dimen name="linearLayoutVerticalLayoutWidth">352dp</dimen>
     <dimen name="linearLayoutVeticalLast_layout_width">392dp</dimen>
     <dimen name="linearLayoutVeticalSpace_layout_width">20dp</dimen>
 
