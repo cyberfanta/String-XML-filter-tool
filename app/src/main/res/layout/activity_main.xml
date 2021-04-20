@@ -691,7 +691,7 @@
 
         android:background="@drawable/background"
         app:adSize="BANNER"
-        app:adUnitId="@string/ads_footer"
+        app:adUnitId="@string/ads_banner"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

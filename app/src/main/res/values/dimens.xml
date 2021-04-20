@@ -12,7 +12,7 @@
     <dimen name="linearLayoutVeticalSpace_layout_width">20dp</dimen>
 
     <!--    editTextTextMultiLine-->
-    <dimen name="editTextTextMultiLine_textSize">36sp</dimen>
+    <dimen name="editTextTextMultiLine_textSize">30sp</dimen>
     <dimen name="editTextTextMultiLine_corners">15dp</dimen>
     <dimen name="editTextTextMultiLine_padding">10dp</dimen>
 

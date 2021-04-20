@@ -8,7 +8,9 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Insets;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -17,7 +19,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.view.WindowManager;
+import android.view.WindowMetrics;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -44,6 +49,7 @@ import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.tasks.OnCompleteListener;
 import com.google.android.play.core.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -66,10 +72,13 @@ public class MainActivity extends AppCompatActivity {
     final HashMap <Integer, String> labels = new HashMap<>(0);
     final HashMap <Integer, String> extras = new HashMap<>(0);
     final Vector <String> rows = new Vector<>(0);
-    String contents;
+    String contents = "";
 
     private InterstitialAd interstitialAd;
     int adCounter = 0;
+
+    @SuppressWarnings("FieldCanBeLocal")
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     final int FOLDERPICKER_CODE_SAVE = 1;
     final int FOLDERPICKER_CODE_OPEN = 2;
@@ -90,19 +99,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_2);
 
+        // Firebase Analytics
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "test");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
         // Device Metrics
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        deviceWidth = displayMetrics.widthPixels;
+        getDeviceWidth();
 
         // Keep keyboard hidden
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         // Banner
         AdView adView = new AdView(this);
+        adView.setAdUnitId(getString(R.string.ads_banner));
         adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, DeviceUtils.convertPxToDp(this, deviceWidth)));
-        adView.setAdUnitId(getString(R.string.ads_footer));
-        AdView adView1 = findViewById(R.id.adView);
+        AdView adView1 = findViewById(R.id.adView_2);
         adView1.addView(adView);
         adView.loadAd(new AdRequest.Builder().build());
     }
@@ -117,34 +130,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
                 AdRequest adRequest = new AdRequest.Builder().build();
-
                 // Interstitial
                 InterstitialAd.load(MainActivity.this, getString(R.string.ads_interstitial), adRequest,
                         new InterstitialAdLoadCallback() {
                             @Override
-                            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                                // The mInterstitialAd reference will be null until an ad is loaded.
-                                MainActivity.this.interstitialAd = interstitialAd;
-                                Toast.makeText(MainActivity.this, "onAdLoaded()", Toast.LENGTH_SHORT).show();
+                            public void onAdLoaded(@NonNull InterstitialAd mInterstitialAd) {
+                                interstitialAd = mInterstitialAd;
                                 //noinspection NullableProblems
                                 interstitialAd.setFullScreenContentCallback(
                                         new FullScreenContentCallback() {
                                             @Override
                                             public void onAdDismissedFullScreenContent() {
-                                                // Called when fullscreen content is dismissed. Make sure to set your reference to null so you don't show it a second time.
-                                                MainActivity.this.interstitialAd = null;
+                                                interstitialAd = null;
                                             }
 
                                             @Override
                                             public void onAdFailedToShowFullScreenContent(AdError adError) {
-                                                // Called when fullscreen content failed to show. Make sure to set your reference to null so you don't show it a second time.
-                                                MainActivity.this.interstitialAd = null;
+                                                interstitialAd = null;
                                             }
 
                                             @Override
                                             public void onAdShowedFullScreenContent() {
-                                                // Called when fullscreen content is shown.
-                                                Log.d("TAG", "The ad was shown.");
                                             }
                                         }
                                 );
@@ -153,6 +159,50 @@ public class MainActivity extends AppCompatActivity {
                 );
             }
         });
+
+        // Setting widths for components
+        int width = (deviceWidth - DeviceUtils.convertDpToPx(this, 12)) / 5;
+        ViewGroup.LayoutParams layoutParams;
+        View view;
+
+        view = findViewById(R.id.view14);
+        layoutParams = view.getLayoutParams();
+        layoutParams.width = width;
+        view.setLayoutParams(layoutParams);
+
+        view = findViewById(R.id.view15);
+        layoutParams = view.getLayoutParams();
+        layoutParams.width = width;
+        view.setLayoutParams(layoutParams);
+
+        view = findViewById(R.id.view16);
+        layoutParams = view.getLayoutParams();
+        layoutParams.width = width;
+        view.setLayoutParams(layoutParams);
+
+        view = findViewById(R.id.view17);
+        layoutParams = view.getLayoutParams();
+        layoutParams.width = width;
+        view.setLayoutParams(layoutParams);
+
+        view = findViewById(R.id.view18);
+        layoutParams = view.getLayoutParams();
+        layoutParams.width = width;
+        view.setLayoutParams(layoutParams);
+    }
+
+    //    -----
+
+    public void getDeviceWidth(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            WindowMetrics windowMetrics = getWindowManager().getCurrentWindowMetrics();
+            Insets insets = windowMetrics.getWindowInsets().getInsetsIgnoringVisibility(WindowInsets.Type.systemBars());
+            deviceWidth =  windowMetrics.getBounds().width() - insets.left - insets.right;
+        } else {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            deviceWidth =  displayMetrics.widthPixels;
+        }
     }
 
     //    -----
@@ -195,11 +245,11 @@ public class MainActivity extends AppCompatActivity {
     public void pastePlainText (TextView textView) {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
-        if (clipboard != null) {
-            if (!(Objects.requireNonNull(clipboard.getPrimaryClipDescription()).hasMimeType(MIMETYPE_TEXT_PLAIN))) {
+        if (clipboard.getPrimaryClipDescription() != null) {
+            if (!(clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN))) {
                 Toast.makeText(getApplicationContext(), R.string.noPlainText, Toast.LENGTH_SHORT).show();
             } else {
-                ClipData.Item item = Objects.requireNonNull(clipboard.getPrimaryClip()).getItemAt(0);
+                ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
                 textView.setText(item.getText().toString());
             }
         }
@@ -479,8 +529,8 @@ public class MainActivity extends AppCompatActivity {
             else
                 intent.putExtra("location", fileLocation);
             startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
-            loadInterstitialAdd();
         }
+        loadInterstitialAdd();
     }
 
     /**
