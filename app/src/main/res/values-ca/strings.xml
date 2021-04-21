@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eina de filtre Strings XML</string>
+    <string name="app_name">Eina de filtre XML de cadenes</string>
 
-    <string name="notImplemented">La funció encara no s\'ha implementat</string>
+    <string name="notImplemented">La funció encara no està implementada</string>
 
     <!--    Permissions-->
     <string name="permissionGranted">Permisos concedits</string>
@@ -19,7 +19,7 @@
     <string name="processDone">Procés realitzat</string>
     <string name="stringxmlFormatWrong">format de strings.xml incorrecte</string>
     <string name="stringxmlTranslatedFormatWrong">format de strings.xml traduït incorrecte</string>
-    <string name="stringxmlFormatEmpty">El format strings.xml està buit, si us plau, empleneu-lo</string>
+    <string name="stringxmlFormatEmpty">El format strings.xml és buit, ompliu-lo</string>
 
     <!--    button-->
     <string name="buttonBack_text">esquena</string>
@@ -38,6 +38,7 @@
     <string name="editTextTextMultiLine2_hint">Agafeu el vostre strings.xml filtrat</string>
     <string name="editTextTextMultiLine3_hint">Enganxeu el vostre strings.xml traduït</string>
     <string name="editTextTextMultiLine4_hint">Agafeu el vostre strings.xml estructurat amb la traducció proporcionada</string>
+    <string name="editTextTextMultiLine_google_hint">Seleccioneu el vostre idioma.\nLa funcionalitat encara no està activada.\nEstarà disponible a la versió 2.</string>
 
     <!--    Menú items-->
     <string name="item_policy">Política de privacitat</string>
@@ -45,5 +46,31 @@
     <string name="item_about">Sobre</string>
 
     <!--    Author-->
+
+    <!--    Version 2 UI-->
+    <!--    Tools-->
+    <string name="tvA1">Obert</string>
+    <string name="tvB1">Enganxa</string>
+    <string name="tvC1">Pròxim</string>
+
+    <string name="tvA2">esquena</string>
+    <string name="tvB2">Copia</string>
+
+    <string name="tvB3">Tradueix</string>
+
+    <string name="tvC5">Desa</string>
+    <string name="tvD5">Reinicia</string>
+
+    <!--    Components-->
+    <string name="tvM1">Raw\nCordes</string>
+    <string name="tvM2">Filtrat\nCordes</string>
+    <string name="tvM3">Tradueix\nCordes</string>
+    <string name="tvM4">Traduït\nCordes</string>
+    <string name="tvM5">Nova\nCordes</string>
+
+    <!--    Contributors-->
+    <string name="contributors_special">Gràcies especials pels vostres comentaris:</string>
+    <string name="contributors_contributors">Telmo Almeida</string>
+
 
 </resources>

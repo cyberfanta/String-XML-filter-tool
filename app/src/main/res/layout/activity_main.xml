@@ -585,7 +585,7 @@
         android:background="@color/colorBackground_author"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="author_selected"
+        android:onClick="authorSelected"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"

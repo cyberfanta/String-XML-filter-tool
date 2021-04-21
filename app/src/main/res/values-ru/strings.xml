@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Инструмент фильтрации Strings XML</string>
+    <string name="app_name">Инструмент XML-фильтра строк</string>
 
     <string name="notImplemented">Функция все еще не реализована</string>
 
@@ -23,8 +23,8 @@
 
     <!--    button-->
     <string name="buttonBack_text">Назад</string>
-    <string name="buttonNext_text">следующий</string>
-    <string name="buttonRestart_text">Начать сначала</string>
+    <string name="buttonNext_text">Следующий</string>
+    <string name="buttonRestart_text">Запустить снова</string>
     <string name="buttonOpenFile_text">Открыть файл</string>
     <string name="buttonSaveFile_text">Сохранить файл</string>
     <string name="button1_text">Вставить</string>
@@ -38,12 +38,39 @@
     <string name="editTextTextMultiLine2_hint">Возьмите отфильтрованный strings.xml</string>
     <string name="editTextTextMultiLine3_hint">Вставьте переведенный файл strings.xml</string>
     <string name="editTextTextMultiLine4_hint">Возьмите свой strings.xml, структурированный с предоставленным переводом</string>
+    <string name="editTextTextMultiLine_google_hint">Выберите свой язык.\nФункциональность по-прежнему не активирована.\nБудет доступна в версии 2.</string>
 
     <!--    Menú items-->
-    <string name="item_policy">политика конфиденциальности</string>
+    <string name="item_policy">Политика конфиденциальности</string>
     <string name="item_rate">Оцените наше приложение</string>
-    <string name="item_about">Около</string>
+    <string name="item_about">О</string>
 
     <!--    Author-->
+
+    <!--    Version 2 UI-->
+    <!--    Tools-->
+    <string name="tvA1">Открыть</string>
+    <string name="tvB1">Вставить</string>
+    <string name="tvC1">Следующий</string>
+
+    <string name="tvA2">Назад</string>
+    <string name="tvB2">Копировать</string>
+
+    <string name="tvB3">Переведите</string>
+
+    <string name="tvC5">Сохранить</string>
+    <string name="tvD5">Запустить снова</string>
+
+    <!--    Components-->
+    <string name="tvM1">Сырой\nСтруны</string>
+    <string name="tvM2">Отфильтровано\nСтруны</string>
+    <string name="tvM3">Переведите\nСтруны</string>
+    <string name="tvM4">Переведено\nСтруны</string>
+    <string name="tvM5">New Raw\nСтруны</string>
+
+    <!--    Contributors-->
+    <string name="contributors_special">Особое спасибо за ваш отзыв:</string>
+    <string name="contributors_contributors">Тельмо Алмейда</string>
+
 
 </resources>

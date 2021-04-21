@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Herramienta de filtro Strings XML</string>
+    <string name="app_name">Herramienta de filtro de cadenas XML</string>
 
     <string name="notImplemented">Función aún no implementada</string>
 
     <!--    Permissions-->
-    <string name="permissionGranted">Permisos otorgados</string>
+    <string name="permissionGranted">Permisos concedidos</string>
     <string name="permissionNotGranted">Permisos no concedidos</string>
     <string name="noIntentFound">No se encontró ningún administrador de archivos adecuado</string>
     <string name="fileOpen">Seleccione la ubicación del archivo de strings.xml</string>
@@ -14,16 +14,16 @@
     <!--    AdsView-->
 
     <!--    clipboard-->
-    <string name="noPlainText">No hay un texto sin formato en su portapapeles</string>
+    <string name="noPlainText">No hay ningún texto en su portapapeles</string>
     <string name="textCopied">Texto copiado en su portapapeles</string>
-    <string name="processDone">Proceso hecho</string>
-    <string name="stringxmlFormatWrong">formato strings.xml incorrecto</string>
-    <string name="stringxmlTranslatedFormatWrong">formato strings.xml traducido incorrecto</string>
-    <string name="stringxmlFormatEmpty">El formato strings.xml está vacío, llénelo</string>
+    <string name="processDone">Proceso realizado</string>
+    <string name="stringxmlFormatWrong">Formato incorrecto de strings.xml</string>
+    <string name="stringxmlTranslatedFormatWrong">Formato incorrecto de strings.xml traducido</string>
+    <string name="stringxmlFormatEmpty">Formato de strings.xml está vacío, por favor llénelo</string>
 
     <!--    button-->
-    <string name="buttonBack_text">atrás</string>
-    <string name="buttonNext_text">próximo</string>
+    <string name="buttonBack_text">Regresar</string>
+    <string name="buttonNext_text">Siguiente</string>
     <string name="buttonRestart_text">Reiniciar</string>
     <string name="buttonOpenFile_text">Abrir documento</string>
     <string name="buttonSaveFile_text">Guardar el archivo</string>
@@ -38,6 +38,7 @@
     <string name="editTextTextMultiLine2_hint">Toma tu strings.xml filtrado</string>
     <string name="editTextTextMultiLine3_hint">Pega tu strings.xml traducido</string>
     <string name="editTextTextMultiLine4_hint">Tome su strings.xml estructurado con la traducción proporcionada</string>
+    <string name="editTextTextMultiLine_google_hint">Elige tu idioma.\nLa funcionalidad aún no está activada.\nEstará disponible en la versión 2.</string>
 
     <!--    Menú items-->
     <string name="item_policy">Política de privacidad</string>
@@ -45,5 +46,31 @@
     <string name="item_about">Acerca de</string>
 
     <!--    Author-->
+
+    <!--    Version 2 UI-->
+    <!--    Tools-->
+    <string name="tvA1">Abrir</string>
+    <string name="tvB1">Pegar</string>
+    <string name="tvC1">Siguiente</string>
+
+    <string name="tvA2">Regresar</string>
+    <string name="tvB2">Copiar</string>
+
+    <string name="tvB3">Traducir</string>
+
+    <string name="tvC5">Salvar</string>
+    <string name="tvD5">Reiniciar</string>
+
+    <!--    Components-->
+    <string name="tvM1">String\nOriginal</string>
+    <string name="tvM2">String\nFiltrado</string>
+    <string name="tvM3">String\npor Traducir</string>
+    <string name="tvM4">String\nTraducido</string>
+    <string name="tvM5">String\nNuevo</string>
+
+    <!--    Contributors-->
+    <string name="contributors_special">Gracias especiales por sus comentarios:</string>
+    <string name="contributors_contributors">Telmo Almeida</string>
+
 
 </resources>

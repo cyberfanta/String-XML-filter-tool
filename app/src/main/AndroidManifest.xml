@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cyberfanta.stringsxmlfiltertool">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -20,6 +21,7 @@
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
         <activity android:name="com.cyberfanta.stringsxmlfiltertool.MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize">
             <intent-filter>
@@ -37,3 +39,4 @@
 </manifest>
 <!--  Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
 <!--        android:value="ca-app-pub-3940256099942544~3347511713" />-->
+<!--    android:value="ca-app-pub-2321980263900338~9231979886" />-->

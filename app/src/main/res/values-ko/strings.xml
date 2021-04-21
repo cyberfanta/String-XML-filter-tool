@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Strings XML 필터 도구</string>
+    <string name="app_name">문자열 XML 필터 도구</string>
 
     <string name="notImplemented">아직 구현되지 않은 기능</string>
 
@@ -38,6 +38,7 @@
     <string name="editTextTextMultiLine2_hint">필터링 된 strings.xml 가져 오기</string>
     <string name="editTextTextMultiLine3_hint">번역 된 strings.xml 붙여 넣기</string>
     <string name="editTextTextMultiLine4_hint">제공된 번역으로 구성된 strings.xml을 가져옵니다.</string>
+    <string name="editTextTextMultiLine_google_hint">언어를 선택하십시오.\n기능이 아직 활성화되지 않았습니다.\n버전 2에서 사용할 수 있습니다.</string>
 
     <!--    Menú items-->
     <string name="item_policy">개인 정보 정책</string>
@@ -45,5 +46,31 @@
     <string name="item_about">약</string>
 
     <!--    Author-->
+
+    <!--    Version 2 UI-->
+    <!--    Tools-->
+    <string name="tvA1">열다</string>
+    <string name="tvB1">풀</string>
+    <string name="tvC1">다음</string>
+
+    <string name="tvA2">뒤</string>
+    <string name="tvB2">부</string>
+
+    <string name="tvB3">옮기다</string>
+
+    <string name="tvC5">저장</string>
+    <string name="tvD5">재시작</string>
+
+    <!--    Components-->
+    <string name="tvM1">노골적인\n문자열</string>
+    <string name="tvM2">거르는\n문자열</string>
+    <string name="tvM3">옮기다\n문자열</string>
+    <string name="tvM4">번역됨\n문자열</string>
+    <string name="tvM5">새로운 원시\n문자열</string>
+
+    <!--    Contributors-->
+    <string name="contributors_special">의견을 보내 주셔서 감사합니다.</string>
+    <string name="contributors_contributors">Telmo Almeida</string>
+
 
 </resources>

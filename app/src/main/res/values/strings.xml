@@ -13,7 +13,10 @@
     <string name="fileSave">Select folder to save your new strings.xml</string>
 
     <!--    AdsView-->
-    <string name="ads_banner" translatable="false">ca-app-pub-2321980263900338/1932074368</string>
+<!--    <string name="ads_banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="ads_banner" translatable="false">ca-app-pub-2321980263900338/1932074368</string>-->
+    <string name="ads_banner" translatable="false">ca-app-pub-2321980263900338/5572228365</string>
+<!--    <string name="ads_interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
     <string name="ads_interstitial" translatable="false">ca-app-pub-2321980263900338/6925380744</string>
 
     <!--    clipboard-->

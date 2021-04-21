@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Strings XML फ़िल्टर उपकरण</string>
+    <string name="app_name">तार एक्सएमएल फिल्टर उपकरण</string>
 
     <string name="notImplemented">अभी भी कार्य नहीं किया गया है</string>
 
@@ -23,8 +23,8 @@
 
     <!--    button-->
     <string name="buttonBack_text">वापस</string>
-    <string name="buttonNext_text">आगे</string>
-    <string name="buttonRestart_text">पुनर्प्रारंभ करें</string>
+    <string name="buttonNext_text">अगला</string>
+    <string name="buttonRestart_text">पुनः आरंभ करें</string>
     <string name="buttonOpenFile_text">खुली फाइल</string>
     <string name="buttonSaveFile_text">फाइल सुरक्षित करें</string>
     <string name="button1_text">पेस्ट करें</string>
@@ -37,13 +37,40 @@
     <string name="editTextTextMultiLine1_hint">कच्चे तार डालें। xml</string>
     <string name="editTextTextMultiLine2_hint">अपने फ़िल्टर किए गए तार लें। Xml</string>
     <string name="editTextTextMultiLine3_hint">अपने अनुवादित तार चिपकाएँ। Xml</string>
-    <string name="editTextTextMultiLine4_hint">प्रदान किए गए अनुवाद के साथ अपने स्ट्रिंग्स.xml को संरचित करें</string>
+    <string name="editTextTextMultiLine4_hint">दिए गए अनुवाद के साथ अपने स्ट्रिंग्स.xml को संरचित करें</string>
+    <string name="editTextTextMultiLine_google_hint">अपनी भाषा का चयन करें।\nकार्यक्षमता अभी भी सक्रिय नहीं है।\nसंस्करण 2 में उपलब्ध होगा।</string>
 
     <!--    Menú items-->
     <string name="item_policy">गोपनीयता नीति</string>
     <string name="item_rate">हमारे ऐप को रेट करें</string>
-    <string name="item_about">के बारे में</string>
+    <string name="item_about">तकरीबन</string>
 
     <!--    Author-->
+
+    <!--    Version 2 UI-->
+    <!--    Tools-->
+    <string name="tvA1">खुला हुआ</string>
+    <string name="tvB1">पेस्ट करें</string>
+    <string name="tvC1">अगला</string>
+
+    <string name="tvA2">वापस</string>
+    <string name="tvB2">प्रतिलिपि</string>
+
+    <string name="tvB3">अनुवाद करना</string>
+
+    <string name="tvC5">सहेजें</string>
+    <string name="tvD5">पुनः आरंभ करें</string>
+
+    <!--    Components-->
+    <string name="tvM1">कच्चा\nस्ट्रिंग्स</string>
+    <string name="tvM2">छाना हुआ\nस्ट्रिंग्स</string>
+    <string name="tvM3">अनुवाद करना\nस्ट्रिंग्स</string>
+    <string name="tvM4">अनुवाद\nस्ट्रिंग्स</string>
+    <string name="tvM5">नया कच्चा\nस्ट्रिंग्स</string>
+
+    <!--    Contributors-->
+    <string name="contributors_special">प्रतिक्रिया के लिए विशेष धन्यवाद:</string>
+    <string name="contributors_contributors">तेलमो अल्मेडा</string>
+
 
 </resources>

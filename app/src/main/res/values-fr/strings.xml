@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Outil de filtrage Strings XML</string>
+    <string name="app_name">Outil de filtrage XML de chaînes</string>
 
     <string name="notImplemented">Fonction toujours pas implémentée</string>
 
@@ -22,7 +22,7 @@
     <string name="stringxmlFormatEmpty">Le format strings.xml est vide, veuillez le remplir</string>
 
     <!--    button-->
-    <string name="buttonBack_text">Retour</string>
+    <string name="buttonBack_text">Dos</string>
     <string name="buttonNext_text">Suivant</string>
     <string name="buttonRestart_text">Redémarrer</string>
     <string name="buttonOpenFile_text">Fichier ouvert</string>
@@ -36,8 +36,9 @@
     <!--    editTextTextMultiLine-->
     <string name="editTextTextMultiLine1_hint">Insérer des chaînes brutes.xml</string>
     <string name="editTextTextMultiLine2_hint">Prenez vos strings.xml filtrés</string>
-    <string name="editTextTextMultiLine3_hint">Collez votre strings.xml traduit</string>
+    <string name="editTextTextMultiLine3_hint">Collez vos strings.xml traduits</string>
     <string name="editTextTextMultiLine4_hint">Prenez votre strings.xml structuré avec la traduction fournie</string>
+    <string name="editTextTextMultiLine_google_hint">Choisissez votre langue.\nFonctionnalité toujours pas activée.\nSera disponible à la version 2.</string>
 
     <!--    Menú items-->
     <string name="item_policy">Politique de confidentialité</string>
@@ -45,5 +46,31 @@
     <string name="item_about">À propos</string>
 
     <!--    Author-->
+
+    <!--    Version 2 UI-->
+    <!--    Tools-->
+    <string name="tvA1">Ouvert</string>
+    <string name="tvB1">Pâte</string>
+    <string name="tvC1">Suivant</string>
+
+    <string name="tvA2">Dos</string>
+    <string name="tvB2">Copie</string>
+
+    <string name="tvB3">Traduire</string>
+
+    <string name="tvC5">Sauvegarder</string>
+    <string name="tvD5">Redémarrer</string>
+
+    <!--    Components-->
+    <string name="tvM1">Brut\nCordes</string>
+    <string name="tvM2">Filtré\nCordes</string>
+    <string name="tvM3">Traduire\nCordes</string>
+    <string name="tvM4">Traduit\nCordes</string>
+    <string name="tvM5">Nouveau Raw\nCordes</string>
+
+    <!--    Contributors-->
+    <string name="contributors_special">Un merci spécial pour vos commentaires:</string>
+    <string name="contributors_contributors">Telmo Almeida</string>
+
 
 </resources>

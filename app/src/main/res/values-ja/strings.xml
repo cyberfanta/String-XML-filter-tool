@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Strings XML フィルターツール</string>
+    <string name="app_name">文字列XMLフィルターツール</string>
 
     <string name="notImplemented">機能はまだ実装されていません</string>
 
@@ -38,12 +38,39 @@
     <string name="editTextTextMultiLine2_hint">フィルタリングされたstrings.xmlを取得します</string>
     <string name="editTextTextMultiLine3_hint">翻訳したstrings.xmlを貼り付けます</string>
     <string name="editTextTextMultiLine4_hint">提供された翻訳で構造化されたstrings.xmlを取得します</string>
+    <string name="editTextTextMultiLine_google_hint">言語を選択。\n機能はまだアクティブ化されていません。\nバージョン2で利用可能になります。</string>
 
     <!--    Menú items-->
     <string name="item_policy">個人情報保護方針</string>
-    <string name="item_rate">アプリを評価する</string>
+    <string name="item_rate">私たちのアプリを評価する</string>
     <string name="item_about">約</string>
 
     <!--    Author-->
+
+    <!--    Version 2 UI-->
+    <!--    Tools-->
+    <string name="tvA1">開いた</string>
+    <string name="tvB1">ペースト</string>
+    <string name="tvC1">次</string>
+
+    <string name="tvA2">バック</string>
+    <string name="tvB2">コピー</string>
+
+    <string name="tvB3">翻訳する</string>
+
+    <string name="tvC5">セーブ</string>
+    <string name="tvD5">再起動</string>
+
+    <!--    Components-->
+    <string name="tvM1">生\n文字列</string>
+    <string name="tvM2">フィルタリング\n文字列</string>
+    <string name="tvM3">翻訳する\n文字列</string>
+    <string name="tvM4">翻訳済み\n文字列</string>
+    <string name="tvM5">新しい生\n文字列</string>
+
+    <!--    Contributors-->
+    <string name="contributors_special">フィードバックをありがとうございます：</string>
+    <string name="contributors_contributors">テルモアルメイダ</string>
+
 
 </resources>

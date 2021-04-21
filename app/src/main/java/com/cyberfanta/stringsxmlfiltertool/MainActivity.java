@@ -1,6 +1,10 @@
 package com.cyberfanta.stringsxmlfiltertool;
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
@@ -36,10 +40,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -74,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     final Vector <String> rows = new Vector<>(0);
     String contents = "";
 
+    private AdView adView;
     private InterstitialAd interstitialAd;
     int adCounter = 0;
 
@@ -88,11 +95,12 @@ public class MainActivity extends AppCompatActivity {
     ReviewInfo reviewInfo;
 
     // Device Metrics
-    int deviceWidth;
+    Integer deviceWidth;
 
     // Logic for UI Version 2
     int currentComponent = 1;
     final String[] textTextBox = new String[]{"", "", "", "", ""};
+    private boolean authorOpened = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,57 +114,25 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         // Device Metrics
-        getDeviceWidth();
+        calculateDeviceWidth();
 
         // Keep keyboard hidden
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-        // Banner
-        AdView adView = new AdView(this);
-        adView.setAdUnitId(getString(R.string.ads_banner));
-        adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, DeviceUtils.convertPxToDp(this, deviceWidth)));
-        AdView adView1 = findViewById(R.id.adView_2);
-        adView1.addView(adView);
-        adView.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        // Loading Ads
-        //noinspection NullableProblems
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+        // Interstitial Ads
+        loadInterstitialAds();
+
+        // Banner Ads
+        final AdView adView1 = findViewById(R.id.adView_2);
+        adView1.post(new Runnable() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                AdRequest adRequest = new AdRequest.Builder().build();
-                // Interstitial
-                InterstitialAd.load(MainActivity.this, getString(R.string.ads_interstitial), adRequest,
-                        new InterstitialAdLoadCallback() {
-                            @Override
-                            public void onAdLoaded(@NonNull InterstitialAd mInterstitialAd) {
-                                interstitialAd = mInterstitialAd;
-                                //noinspection NullableProblems
-                                interstitialAd.setFullScreenContentCallback(
-                                        new FullScreenContentCallback() {
-                                            @Override
-                                            public void onAdDismissedFullScreenContent() {
-                                                interstitialAd = null;
-                                            }
-
-                                            @Override
-                                            public void onAdFailedToShowFullScreenContent(AdError adError) {
-                                                interstitialAd = null;
-                                            }
-
-                                            @Override
-                                            public void onAdShowedFullScreenContent() {
-                                            }
-                                        }
-                                );
-                            }
-                        }
-                );
+            public void run() {
+                loadBannerAds(adView1);
             }
         });
 
@@ -191,9 +167,160 @@ public class MainActivity extends AppCompatActivity {
         view.setLayoutParams(layoutParams);
     }
 
+    @Override
+    protected void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        ConstraintLayout constraintLayout = findViewById(R.id.author);
+        if (authorOpened) {
+            authorSelected(constraintLayout);
+            authorOpened = false;
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    //    ---
+
+    /**
+     * Manage the loading of Interstitial Ads
+     */
+    public void showInterstitialAds() {
+        if (adCounter > 1) {
+            if (interstitialAd != null) {
+                interstitialAd.show(this);
+                adCounter = 0;
+                return;
+            }
+            else
+                Log.i("","****** AD NOT LOADED YET");
+        }
+        adCounter++;
+    }
+
+    /**
+     * Manage the loading of Banner Ads
+     */
+    public void loadBannerAds (AdView adView1) {
+        adView = new AdView(this);
+        adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, DeviceUtils.convertPxToDp(this, deviceWidth)));
+        adView.setAdUnitId(getString(R.string.ads_banner));
+        adView1.addView(adView);
+        adView.setAdListener(
+                new AdListener() {
+                    @Override
+                    public void onAdLoaded() {
+                        super.onAdLoaded();
+                        // The previous banner ad loaded successfully, call this method again to
+                        // load the next ad in the items list.
+                        Log.i("MainActivity", "Banner Ad Loaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // The previous banner ad failed to load. Call this method again to load
+                        // the next ad in the items list.
+                        @SuppressLint("DefaultLocale")
+                        String error =
+                                String.format(
+                                        "domain: %s, code: %d, message: %s",
+                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
+                        Log.e(
+                                "MainActivity",
+                                "The previous banner ad failed to load with error: "
+                                        + error
+                                        + ". Attempting to"
+                                        + " load the next banner ad in the items list.");
+                    }
+                });
+        adView.loadAd(new AdRequest.Builder().build());
+    }
+
+    /**
+     * Manage the loading of Banner Ads
+     */
+    public void loadInterstitialAds(){
+        //noinspection NullableProblems
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                AdRequest adRequest = new AdRequest.Builder().build();
+                // Interstitial
+                InterstitialAd.load(MainActivity.this, getString(R.string.ads_interstitial), adRequest,
+                        new InterstitialAdLoadCallback() {
+                            @Override
+                            public void onAdLoaded(@NonNull InterstitialAd mInterstitialAd) {
+                                interstitialAd = mInterstitialAd;
+                                //noinspection NullableProblems
+                                interstitialAd.setFullScreenContentCallback(
+                                        new FullScreenContentCallback() {
+                                            @Override
+                                            public void onAdDismissedFullScreenContent() {
+                                                interstitialAd = null;
+                                            }
+
+                                            @Override
+                                            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                                interstitialAd = null;
+                                            }
+
+                                            @Override
+                                            public void onAdShowedFullScreenContent() {
+                                            }
+                                        }
+                                );
+                            }
+
+                            @Override
+                            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                                // Handle the error
+                                Log.i("MainActivity", loadAdError.getMessage());
+                                interstitialAd = null;
+
+                                @SuppressLint("DefaultLocale")
+                                String error =
+                                        String.format(
+                                                "domain: %s, code: %d, message: %s",
+                                                loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
+                                Log.e(
+                                        "MainActivity",
+                                        "The previous interstitial ad failed to load with error: "
+                                                + error
+                                                + ". Attempting to"
+                                                + " load the next interstitial ad in the items list.");
+
+                            }
+                        }
+                );
+            }
+        });
+    }
+
     //    -----
 
-    public void getDeviceWidth(){
+    public void calculateDeviceWidth(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             WindowMetrics windowMetrics = getWindowManager().getCurrentWindowMetrics();
             Insets insets = windowMetrics.getWindowInsets().getInsetsIgnoringVisibility(WindowInsets.Type.systemBars());
@@ -327,7 +454,7 @@ public class MainActivity extends AppCompatActivity {
                 editText = findViewById(R.id.editTextTextMultiLine4);
                 editText.setText(contents);
             }
-            loadInterstitialAdd();
+            showInterstitialAds();
         }
         horizontalScroll(View.FOCUS_RIGHT);
     }
@@ -413,16 +540,14 @@ public class MainActivity extends AppCompatActivity {
                 if (line.contains("\\\"")) {
                     split = line.split("\\\\\"");
                     name = split[0].split("\"");
-                } else {
+                } else
                     name = line.split("\"");
-                }
 
                 if (name.length < 2)
                     continue;
 
-                if (line.contains("item")) {
+                if (name[0].contains("<item"))
                     labels.put(rows.size(), "item");
-                }
 
                 if (split != null)
                     for (int i = 1; i < split.length; i++)
@@ -430,13 +555,25 @@ public class MainActivity extends AppCompatActivity {
 
                 names.put(rows.size(), name[1]);
 
-                rows.add("filled");
-
                 String[] content = name[2].split("<");
                 if (content.length < 2)
                     continue;
 
-                contents = contents.concat(content[0].substring(1)).concat("\n");
+                content[0] = content[0].substring(1);
+
+                if (content[0].contains("\\n")){
+                    String[] contentSplits = content[0].split("\\\\n");
+                    for (String contentSplit: contentSplits) {
+                        if (contentSplit.equals(contentSplits[contentSplits.length - 1]))
+                            rows.add("endsplit");
+                        else
+                            rows.add("split");
+                        contents = contents.concat(contentSplit.concat("\n"));
+                    }
+                } else {
+                    rows.add("filled");
+                    contents = contents.concat(content[0]).concat("\n");
+                }
             }
         }
 
@@ -460,7 +597,6 @@ public class MainActivity extends AppCompatActivity {
             contents = "";
             int j = 0;
             String label, extra, name, indentation;
-//            if (rows.elementAt(i).equals("filled")) {
             for (int i = 0; i < rows.size(); i++)
                 if (names.containsKey(i)) {
                     if (lines[j].contains("'")) {
@@ -484,8 +620,26 @@ public class MainActivity extends AppCompatActivity {
                     if (extras.containsKey(i))
                         extra = extras.get(i);
 
-                    if (label != null && extra != null)
-                        contents = contents.concat(indentation).concat("    <").concat(label).concat(" ").concat(name).concat("=\"").concat(Objects.requireNonNull(names.get(i))).concat("\"").concat(extra).concat(">").concat(lines[j]).concat("</").concat(label).concat(">\n");
+                    if (label != null && extra != null) {
+                        if (!rows.elementAt(i).equals("split"))
+                        contents = contents.concat(indentation).concat("    <").concat(label).concat(" ").concat(name).concat("=\"")
+                                .concat(Objects.requireNonNull(names.get(i))).concat("\"").concat(extra).concat(">").concat(lines[j])
+                                .concat("</").concat(label).concat(">\n");
+                        else {
+                            String concat = indentation.concat("    <").concat(label)
+                                    .concat(" ").concat(name).concat("=\"")
+                                    .concat(Objects.requireNonNull(names.get(i)))
+                                    .concat("\"").concat(extra).concat(">");
+                            for ( ; rows.elementAt(i).equals("split"); i++) {
+                                concat = concat.concat(lines[j]).concat("\\n");
+                                j++;
+                            }
+//                            i--;
+//                            j--;
+                            concat = concat.concat(lines[j]).concat("\\n");
+                            contents = contents.concat(concat.substring(0, concat.length() - 2)).concat("</").concat(label).concat(">\n");
+                        }
+                    }
 
                     j++;
                 } else {
@@ -530,7 +684,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("location", fileLocation);
             startActivityForResult(intent, FOLDERPICKER_CODE_SAVE);
         }
-        loadInterstitialAdd();
+        showInterstitialAds();
     }
 
     /**
@@ -678,39 +832,47 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item_about:
                 ConstraintLayout constraintLayout = findViewById(R.id.author);
                 constraintLayout.setVisibility(View.VISIBLE);
+                setAnimation(constraintLayout, "translationX", 300L, false, deviceWidth.floatValue(), 0f);
+                authorOpened = true;
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    //    ---
-
-    /**
-     * Manage the loading of Interstitial Ads
-     */
-    public void loadInterstitialAdd () {
-        if (adCounter > 1) {
-            if (interstitialAd != null) {
-                interstitialAd.show(this);
-                adCounter = 0;
-                return;
-            }
-            else
-                Log.i("","****** NO ESTA CARGADA LA PUBLICIDAD");
-        }
-        adCounter++;
-    }
-
-    //    ---
-
     /**
      * Show the developer info
      */
-    public void author_selected (View view) {
+    public void authorSelected(View view) {
         ConstraintLayout constraintLayout = findViewById(R.id.author);
-        constraintLayout.setVisibility(View.GONE);
+        setAnimation(constraintLayout, "translationX", 300L, false, 0f, deviceWidth.floatValue());
     }
+
+    //    ---
+
+    /**
+     * Set animation on view
+     */
+    @SuppressWarnings("SameParameterValue")
+    private void setAnimation(View view, String propertyName, Long duration, Boolean repeat, Float value1, Float value2) {
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, propertyName, value1, value2);
+        final AnimatorSet animator = new AnimatorSet();
+        animator.play(objectAnimator);
+        animator.setDuration(duration);
+        if (repeat)
+            animator.addListener(
+                    new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            animator.start();
+                        }
+                    }
+            );
+        animator.start();
+    }
+
+    //    ---
 
     //    New functions for UI version 2
     //    Tools 1
