@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Strumento di filtro Strings XML</string>
+    <string name="app_name">Strumento di filtro XML per stringhe</string>
 
     <string name="notImplemented">Funzione ancora non implementata</string>
 
@@ -17,8 +17,8 @@
     <string name="noPlainText">Non c\'è un testo normale negli appunti</string>
     <string name="textCopied">Testo copiato negli appunti</string>
     <string name="processDone">Processo completato</string>
-    <string name="stringxmlFormatWrong">formato strings.xml sbagliato</string>
-    <string name="stringxmlTranslatedFormatWrong">formato strings.xml tradotto sbagliato</string>
+    <string name="stringxmlFormatWrong">Formato strings.xml sbagliato</string>
+    <string name="stringxmlTranslatedFormatWrong">formato strings.xml tradotto in modo errato</string>
     <string name="stringxmlFormatEmpty">Il formato strings.xml è vuoto, riempilo</string>
 
     <!--    button-->
@@ -38,6 +38,7 @@
     <string name="editTextTextMultiLine2_hint">Prendi il tuo file strings.xml filtrato</string>
     <string name="editTextTextMultiLine3_hint">Incolla il file strings.xml tradotto</string>
     <string name="editTextTextMultiLine4_hint">Prendi il tuo strings.xml strutturato con la traduzione fornita</string>
+    <string name="editTextTextMultiLine_google_hint">Seleziona la tua lingua.\nFunzionalità ancora non attivata.\nSarà disponibile alla versione 2.</string>
 
     <!--    Menú items-->
     <string name="item_policy">politica sulla riservatezza</string>
@@ -45,5 +46,31 @@
     <string name="item_about">Di</string>
 
     <!--    Author-->
+
+    <!--    Version 2 UI-->
+    <!--    Tools-->
+    <string name="tvA1">Aperto</string>
+    <string name="tvB1">Incolla</string>
+    <string name="tvC1">Il prossimo</string>
+
+    <string name="tvA2">Indietro</string>
+    <string name="tvB2">copia</string>
+
+    <string name="tvB3">Tradurre</string>
+
+    <string name="tvC5">Salva</string>
+    <string name="tvD5">Ricomincia</string>
+
+    <!--    Components-->
+    <string name="tvM1">Crudo\nstringhe</string>
+    <string name="tvM2">Filtrato\nstringhe</string>
+    <string name="tvM3">Tradurre\nstringhe</string>
+    <string name="tvM4">Tradotto\nstringhe</string>
+    <string name="tvM5">Nuovo Raw\nstringhe</string>
+
+    <!--    Contributors-->
+    <string name="contributors_special">Ringraziamenti speciali per il tuo feedback:</string>
+    <string name="contributors_contributors">Telmo Almeida</string>
+
 
 </resources>
