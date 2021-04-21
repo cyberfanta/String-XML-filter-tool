@@ -8,8 +8,8 @@ android {
         applicationId "com.cyberfanta.stringxmlfiltertool"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 5
-        versionName "1.04"
+        versionCode 6
+        versionName "1.05"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
